@@ -6,7 +6,7 @@
     <title>HNN Textbook</title>
     <!-- <base href="/website_redesign/"> -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="homepage_styles.css">
+    <link rel="stylesheet" href="styles.css">
     
 </head>
 <body>
@@ -64,142 +64,229 @@
                 # Dylan Daniels
             -->
             <br>
-            <div id="logo-wrapper">
-                <img src="https://hnn.brown.edu/wp-content/uploads/hnn-medium.png"></img>
-                <p>
-                    <span style="color: var(--hnn-blue)">HUMAN </span>
-                    <span style="color: var(--hnn-purple)">NEOCORTICAL </span>
-                    <span style="color: var(--hnn-violet)">NEUROSOLVER</span>
-                </p>
-            </div>
 
-            <div id="logo-subtitle">
-                <p>
-                    Developers...
-                </p>
-            </div>
-            <div class="developers-table">
-                <div class="profile-grid" id="profiles">
-                    <!-- Pictures will be added here dynamically -->
+            <h2 style="text-align: center;">
+                Active Development Team
+            </h2>
+            
+            <div class="dev-grid">
+                <div class="dev-card">
+                    <img data-github="stephanie-r-jones" alt="Stephanie R. Jones" />
+                    <div class="name">Stephanie R. Jones</div>
+                    <div class="position">Principal Investigator</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="jasmainak" alt="Mainak Jas" />
+                    <div class="name">Mainak Jas</div>
+                    <div class="position">Developer</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="ntolley" alt="Nicholas Tolley" />
+                    <div class="name">Nicholas Tolley</div>
+                    <div class="position">Developer</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="dylansdaniels" alt="Dylan Daniels" />
+                    <div class="name">Dylan Daniels</div>
+                    <div class="position">Developer</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="asoplata" alt="Austin Soplata" />
+                    <div class="name">Austin Soplata</div>
+                    <div class="position">Developer</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="carolinafernandezp" alt="Carolina Fernandez" />
+                    <div class="name">Carolina Fernandez</div>
+                    <div class="position">Developer</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="katduecker" alt="Katharina Duecker" />
+                    <div class="name">Katharina Duecker</div>
+                    <div class="position">Developer</div>
                 </div>
             </div>
+
+            <br>
+            <h2 style="text-align: center;">
+                All Developers
+            </h3>
+
+            <div class="dev-grid inactive">
+                <div class="dev-card">
+                    <img data-github="rythorpe" alt="Ryan Thorpe" />
+                    <div class="name" name-tooltip="Ryan Thorpe" title="Ryan Thorpe">Ryan Thorpe</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="samnemo" alt="Sam Neymotin" />
+                    <div class="name" name-tooltip="Sam Neymotin">Sam Neymotin</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="blakecaldwell" alt="Blake Caldwell" />
+                    <div class="name" name-tooltip="Blake Caldwell">Blake Caldwell</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="cjayb" alt="Chris Bailey" />
+                    <div class="name" name-tooltip="Chris Bailey">Chris Bailey</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="gtdang" alt="George Dang" />
+                    <div class="name" name-tooltip="George Dang">George Dang</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="chenghuzi" alt="Huzi Cheng" />
+                    <div class="name" name-tooltip="Huzi Cheng">Huzi Cheng</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="samadpls" alt="Abdul Samad Siddiqui" />
+                    <div class="name">Abdul Samad Siddiqui</div>
+                </div>
+                <div class="dev-card">
+                    <img data-github="smpuglie" alt="Sarah Pugliese" />
+                    <div class="name" name-tooltip="Sarah Pugliese">Sarah Pugliese</div>
+                </div>
+            </div>            
+                
+            <br>
+            <h2 style="text-align: center;">
+                Additional Contributors
+            </h2>
+
+            <br>
+            <h2 style="text-align: center;">
+                Collaborators
+            </h2>
+            <div class="collaborators">
+                <p>
+                    Matti Hamalainen, co-PI (MGH)
+                    <br>Michael Hines, co-PI (Yale)
+                    <br>Noam Peled (MGH)
+                    <br>Ted Carnevale (Yale)
+                    <br>Robert McDougal (Yale)
+                    <br>Christopher Moore (Brown)
+                    <br>Amitava Majumdar (SDSC)
+                    <br>Kenneth Yoshimoto (SDSC)
+                    <br>Subhashini Sivagnanam (SDSC)
+                    <br>Salvador Dura-Bernal (SUNY Downstate)
+                    <br>Matteo Cantarelli (Metacell)
+                </p>
+            </div>
+            <br><br>
 
         </div> <!-- close content -->
     </div> <!-- close content wrapper -->
 </div> <!-- close main -->
 
 <script>
-    let isSidebarOpen = true; // Sidebar is initially open
-
-    function toggleNav() {
-        const sidebar = document.getElementById("mySidebar");
-        const main = document.getElementById("main");
-
-        // Toggle sidebar state
-        if (isSidebarOpen) {
-            sidebar.style.width = "0";
-            main.style.marginLeft = "0";
-        } else {
-            sidebar.style.width = "350px";  // Adjust width as needed
-            main.style.marginLeft = "350px";  // Match margin to new width
-        }
-
-        // Toggle the sidebar state
-        isSidebarOpen = !isSidebarOpen;
+    // ----------------------- //
+    // --- Developer Table --- //
+    // ----------------------- //
+    document.querySelectorAll('img[data-github]').forEach(img => {
+    const user = img.getAttribute('data-github');
+    if (user) {
+        img.src = `https://github.com/${user}.png`;
+    } else {
+        img.src = 'default.png'; // fallback
     }
+    });
 
-    // Open the sidebar on page load
-    window.onload = function() {
-        // Set initial styles for open state without animation
-        const sidebar = document.getElementById("mySidebar");
-        const main = document.getElementById("main");
+    // window.addEventListener("load", () => {
+    //     const names = document.querySelectorAll(".dev-card .name");
+    //     let maxWidth = 0;
 
-        sidebar.style.transition = "none";
-        main.style.transition = "none";
-        sidebar.style.width = "350px";
-        main.style.marginLeft = "350px";
+    //     names.forEach(name => {
+    //         const width = name.offsetWidth;
+    //         if (width > maxWidth) maxWidth = width;
+    //     });
 
-        // Re-enable transition for subsequent toggles
-        setTimeout(() => {
-            sidebar.style.transition = "width 0.5s";
-            main.style.transition = "margin-left 0.5s";
-        }, 10);
-    }
+    //     document.querySelectorAll(".dev-card").forEach(card => {
+    //         card.style.width = `${maxWidth + 20}px`; // add padding if needed
+    //     });
+    // });
 
-    function increaseFontSize() {
-        event.stopPropagation();  // Prevent dropdown from closing
-        const content = document.getElementById("content");
-        const currentSize = window.getComputedStyle(content).fontSize;
-        content.style.fontSize = (parseFloat(currentSize) + 2) + "px";
-    }
+    window.addEventListener("load", () => {
+        const activeCards = document.querySelectorAll(".dev-grid:not(.inactive) .dev-card .name");
+        let maxWidth = 0;
 
-    function decreaseFontSize() {
-        event.stopPropagation();  // Prevent dropdown from closing
-        const content = document.getElementById("content");
-        const currentSize = window.getComputedStyle(content).fontSize;
-        content.style.fontSize = (parseFloat(currentSize) - 2) + "px";
-    }
+        activeCards.forEach(name => {
+            const width = name.offsetWidth;
+            if (width > maxWidth) maxWidth = width;
+        });
 
-    // Dropdown for font buttons
-    function toggleDropdown() {
-        const dropdownContent = document.querySelector('.dropdown-content');
-        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-    }
+        document.querySelectorAll(".dev-grid:not(.inactive) .dev-card").forEach(card => {
+            card.style.width = `${maxWidth + 20}px`; // only for active devs
+        });
+    });
 
-    // Open/close dropdown on click of the button
-    document.getElementById('dropdownButton').onclick = function(event) {
-        event.stopPropagation();  // Prevent the click from triggering the window.onclick event
-        toggleDropdown();
-    };
+    // Tooltips for names //
+    // ------------------ //
+    document.querySelectorAll('.dev-card .name').forEach(nameElement => {
+    const originalText = nameElement.textContent;  // Store the original name text
+    const checkOverflow = () => {
+        // Check if the name is overflowing
+        const isOverflowing = nameElement.scrollWidth > nameElement.clientWidth;
 
-    // Close dropdown if clicking outside
-    window.onclick = function(event) {
-        const dropdownContent = document.querySelector('.dropdown-content');
-        if (!event.target.closest('.dropdown')) {  // Close if click outside the dropdown
-            dropdownContent.style.display = 'none';
+        if (isOverflowing && !nameElement.querySelector('a')) {
+            // Create the anchor tag when the name overflows
+            const anchor = document.createElement('a');
+            anchor.setAttribute('href', '#');
+            anchor.setAttribute('name-tooltip', originalText);
+            anchor.textContent = originalText;
+            nameElement.innerHTML = '';  // Clear the name element
+            nameElement.appendChild(anchor);
+        } else if (!isOverflowing && nameElement.querySelector('a')) {
+            // Remove the anchor tag if the name is no longer overflowing
+            nameElement.innerHTML = originalText;  // Restore original text
         }
     };
 
-    function toggleSubmenu(event) {
-        const header = event.target.closest('#sidebar-header'); // Get the clicked header
-        const submenu = header.nextElementSibling; // Get the submenu
-        const toggleIcon = header.querySelector('.toggle-icon'); // Get the icon
-
-        if (submenu && submenu.classList.contains('submenu')) {
-            submenu.classList.toggle('open'); // Toggle the 'open' class to control visibility
-            toggleIcon.textContent = submenu.classList.contains('open') ? '-' : '+'; // Update icon
-        }
-    }
-
-    // This function will add the full text to the title attribute for all anchor tags
-    document.querySelectorAll('.sidebar a').forEach(anchor => {
-        anchor.setAttribute('title', anchor.textContent);
+    // Check overflow initially and on window resize
+    checkOverflow();
+        window.addEventListener('resize', checkOverflow);
     });
 
-    // This function will update the sidebar links when a page is loaded
-    // locally so that sidebar naivagation remains functional without the
-    // need for a server
-    // Note: This should work for Mac/Linux but may not on Windows
-    document.addEventListener("DOMContentLoaded", function() {
-        if (window.location.protocol === "file:") {
-            // get the current local directory path
-            const currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    (() => {
+  let tooltipVisible = false;
 
-            // get 'absolute' links with root of 'website_redesign'
-            const links = document.querySelectorAll("#mySidebar a");
-            links.forEach(link => {
-                const href = link.getAttribute("href");
+  document.querySelectorAll('.dev-card .name a[name-tooltip]').forEach(link => {
+    // on hover-in
+    link.addEventListener('mouseenter', () => {
+      // only if truly truncated and no tooltip is up
+      if (tooltipVisible) return;
+    //   if (link.scrollWidth <= link.clientWidth) return;
 
-                if (href && href.startsWith("/")) {
-                    // extract the local root directory
-                    const rootPath = currentDir.split("/website_redesign/")[0];
-                    // prepend root path to link
-                    const resolvedHref = "file://" + rootPath + href;
-                    link.setAttribute("href", resolvedHref);
-                }
-            });
-        }
+      // delay showing
+      link._tt = setTimeout(() => {
+        // remove old
+        document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
+
+        // build new
+        const tip = document.createElement('div');
+        tip.className = 'name-tooltip';
+        tip.innerText = link.getAttribute('name-tooltip');
+        document.body.appendChild(tip);
+
+        // position below link
+        const r = link.getBoundingClientRect();
+        tip.style.position = 'absolute';
+        tip.style.left = `${r.left + window.scrollX}px`;
+        tip.style.top  = `${r.bottom + window.scrollY + 4}px`;
+
+        // fade in
+        requestAnimationFrame(() => { tip.style.opacity = '1'; });
+        tooltipVisible = true;
+      }, 300);  // 300ms delay
     });
+
+    // on hover-out
+    link.addEventListener('mouseleave', () => {
+      clearTimeout(link._tt);
+      document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
+      tooltipVisible = false;
+    });
+  });
+})();
+
 
     // ------------------- //
     // --- Card Popups --- //
@@ -245,56 +332,6 @@
             }
         });
     });
-
-    // --------------------
-    // Dynamic Developers Table
-    // --------------------
-    async function fetchGitHubProfile(username) {
-            const response = await fetch(`https://api.github.com/users/${username}`);
-            if (!response.ok) {
-                console.error(`Failed to fetch profile for ${username}`);
-                return null;
-            }
-            return await response.json();
-        }
-
-        async function populateProfilePictures() {
-            const usernames = [
-                'stephanie-r-jones', 'jasmainak', 'ntolley',  'dylansdaniels',
-                'asoplata', 'rythorpe', 'samnemo', 'blakecaldwell', 
-                'ramcdougal', 'cjayb', 'gtdang', 'kmilo9999', 'chenghuzi', 
-                'carolinafernandezp', 'katduecker',
-            ]; 
-            const profiles = await Promise.all(usernames.map(fetchGitHubProfile));
-
-            const profilesGrid = document.getElementById('profiles');
-            profiles.forEach(profile => {
-                if (profile) {
-                    const profileDiv = document.createElement('div');
-                    profileDiv.className = 'profile';
-
-                    // Create link
-                    const link = document.createElement('a');
-                    link.href = profile.html_url;
-                    link.target = '_blank'; // Open in a new tab
-
-                    // Add profile picture
-                    const img = document.createElement('img');
-                    img.src = profile.avatar_url;
-                    img.alt = `${profile.login}'s avatar`;
-
-                    // Append image to link, and link to profileDiv
-                    link.appendChild(img);
-                    profileDiv.appendChild(link);
-
-                    // Append profileDiv to the grid
-                    profilesGrid.appendChild(profileDiv);
-                }
-            });
-        }
-
-        // Populate the pictures grid
-        populateProfilePictures();
 
 </script>
 

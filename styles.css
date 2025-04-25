@@ -608,7 +608,140 @@ code {
 
 /*
 # --------------------
-# Developers table
+# Developers Page
+# --------------------
+*/
+
+.dev-grid {
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+    justify-content: center;
+}
+
+/* dev grid override */
+.dev-grid:not(.inactive) {
+    gap: 10px 50px;
+}
+
+.dev-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    /* Width will be set dynamically by JS */
+}
+
+.dev-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.dev-card .name {
+    margin-top: 8px;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.dev-card .position {
+    margin-top: 0px;
+    font-size: 0.85em;
+}
+
+.collaborators {
+    text-align: center;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+}
+
+/* inactive dev group override */
+/* .dev-grid.inactive .dev-card img {
+    width: 100px;
+    height: 100px;
+} */
+
+.dev-grid.inactive .dev-card {
+    width: 120px;
+}
+
+.dev-grid.inactive .dev-card .name {
+    margin-top: 8px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+/* Tooltip styling */
+/* --------------- */
+/* Note: adapted from sidebar-tooltip in website-redesign */
+
+.name-tooltip {
+    will-change: transform;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    background: #fff;
+    border: 2px solid #ddd;
+    color: #000;
+    padding: 3px 6px;
+    border-radius: 10px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+/* Dark mode */
+body.dark-mode .name-tooltip {
+    background: #8d8d8d;
+    color: #fff;
+    border: 2px solid var(--hnn-violet);
+}
+
+/* optional carrot for tooltip */
+/* --------------------------- */
+/* .name-tooltip::before,
+.name-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 15%;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+} */
+
+/* .name-tooltip::before {
+    background: #fff;
+    top: 100%;
+    width: 12px;
+    height: 6px;
+} */
+
+/* .name-tooltip::after {
+    background: #ddd;
+    top: calc(100% + 2px);
+    width: 14px;
+    height: 7px;
+    z-index: -1;
+} */
+
+/* body.dark-mode .name-tooltip::before {
+    background: var(--sidebar-gray);
+} */
+
+/* body.dark-mode .name-tooltip::after {
+    background: var(--light-purple);
+} */
+
+/*
+# --------------------
+# Old Dev Page [DEPRECATE]
 # --------------------
 */
 

@@ -1,0 +1,82 @@
+{
+    "Template": {
+        "github": "",
+        "position": "",
+        "status": ""
+    },
+    "Stephanie R. Jones": {
+        "github": "stephanie-r-jones",
+        "position": "Principal Investigator",
+        "status": "active"
+    },
+    "Mainak Jas": {
+        "github": "jasmainak",
+        "position": "Lead Developer",
+        "status": "active"
+    },
+    "Nicholas Tolley": {
+        "github": "ntolley",
+        "position": "Graduate Student",
+        "status": "active"
+    },
+    "Dylan Daniels": {
+        "github": "dylansdaniels",
+        "position": "Data Scientist",
+        "status": "active"
+    },
+    "Austin Soplata": {
+        "github": "asoplata",
+        "position": "Lead Software Engineer",
+        "status": "active"
+    },
+    "Carolina Fernandez": {
+        "github": "carolinafernandezp",
+        "position": "Postdoctoral Researcher",
+        "status": "active"
+    },
+    "Katharina Duecker": {
+        "github": "katduecker",
+        "position": "Postdoctoral Researcher",
+        "status": "active"
+    },
+    "Ryan Thorpe": {
+        "github": "rythorpe",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Sam Neymotin": {
+        "github": "samnemo",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Blake Caldwell": {
+        "github": "blakecaldwell",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Chris Bailey": {
+        "github": "cjayb",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "George Dang": {
+        "github": "gtdang",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Huzi Cheng": {
+        "github": "chenghuzi",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Abdul Samad Siddiqui": {
+        "github": "samadpls",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Sarah Pugliese": {
+        "github": "smpuglie",
+        "position": "Developer",
+        "status": "inactive"
+    }
+}
