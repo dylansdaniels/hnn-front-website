@@ -78,5 +78,25 @@
         "github": "smpuglie",
         "position": "Developer",
         "status": "inactive"
+    },
+    "Camilo Diaz": {
+        "github": "kmilo9999",
+        "position": "Developer",
+        "status": "inactive"
+    },
+    "Robert McDougal": {
+        "github": "ramcdougal",
+        "position": "Developer",
+        "status": "collaborator"
+    },
+    "Salvador Dura-Bernal": {
+        "github": "salvadord",
+        "position": "Developer",
+        "status": "collaborator"
+    },
+    "Kenneth Yoshimoto": {
+        "github": "kenloi",
+        "position": "Developer",
+        "status": "collaborator"
     }
 }

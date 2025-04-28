@@ -386,6 +386,7 @@ code {
 
     display: -webkit-box !important;
     -webkit-line-clamp: 4 !important;
+            line-clamp: 4 !important;
     -webkit-box-orient: vertical !important; 
 }
 
@@ -616,13 +617,8 @@ code {
     font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 30px;
+    gap: 10px 40px;
     justify-content: center;
-}
-
-/* dev grid override */
-.dev-grid:not(.inactive) {
-    gap: 10px 50px;
 }
 
 .dev-card {
@@ -632,7 +628,7 @@ code {
     text-align: center;
     padding: 5px;
     box-sizing: border-box;
-    /* Width will be set dynamically by JS */
+    /* width set dynamically by javascript */
 }
 
 .dev-card img {
@@ -661,14 +657,16 @@ code {
     font-family: "Fira Sans", Helvetica, Arial, sans-serif;
 }
 
-/* inactive dev group override */
-/* .dev-grid.inactive .dev-card img {
-    width: 100px;
-    height: 100px;
-} */
-
 .dev-grid.inactive .dev-card {
     width: 120px;
+}
+
+.dev-grid.additional .dev-card {
+    width: 75px;
+}
+
+.dev-grid.additional {
+    gap: 10px 10px;
 }
 
 .dev-grid.inactive .dev-card .name {
@@ -687,6 +685,17 @@ code {
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: text;
+}
+
+.collaborators ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collaborators li {
+    margin-bottom: 0px;
+    font-size: 0.90em;
 }
 
 /* Tooltip styling */
@@ -715,116 +724,11 @@ code {
     cursor: text;
 }
 
-/* Dark mode */
+/* dark mode (placeholder for future addition) */
 body.dark-mode .name-tooltip {
     background: #8d8d8d;
     color: #fff;
     border: 2px solid var(--hnn-violet);
-}
-
-/* optional carrot for tooltip */
-/* --------------------------- */
-/* .name-tooltip::before,
-.name-tooltip::after {
-    content: '';
-    position: absolute;
-    left: 15%;
-    transform: translateX(-50%);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-} */
-
-/* .name-tooltip::before {
-    background: #fff;
-    top: 100%;
-    width: 12px;
-    height: 6px;
-} */
-
-/* .name-tooltip::after {
-    background: #ddd;
-    top: calc(100% + 2px);
-    width: 14px;
-    height: 7px;
-    z-index: -1;
-} */
-
-/* body.dark-mode .name-tooltip::before {
-    background: var(--sidebar-gray);
-} */
-
-/* body.dark-mode .name-tooltip::after {
-    background: var(--light-purple);
-} */
-
-.collaborators ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.collaborators li {
-    margin-bottom: 0px;
-    font-size: 0.90em;
-}
-
-/*
-# --------------------
-# Old Dev Page [DEPRECATE]
-# --------------------
-*/
-
-/* Wrapper for the entire table */
-.developers-table {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-/* Title styling for the developers table */
-/* .developers-title {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-} */
-
-/* Grid container for profiles */
-.profile-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* Individual profile container */
-.profile {
-    text-align: center;
-}
-
-/* Profile image styling */
-.profile-img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    transition: transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover effect for profile image */
-.profile-img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Link styling */
-.profile-link {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-    margin-top: 10px;
 }
 
 /* 
