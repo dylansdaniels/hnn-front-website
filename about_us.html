@@ -157,20 +157,21 @@
                 Collaborators
             </h2>
             <div class="collaborators">
-                <p>
-                    Matti Hamalainen, co-PI (MGH)
-                    <br>Michael Hines, co-PI (Yale)
-                    <br>Noam Peled (MGH)
-                    <br>Ted Carnevale (Yale)
-                    <br>Robert McDougal (Yale)
-                    <br>Christopher Moore (Brown)
-                    <br>Amitava Majumdar (SDSC)
-                    <br>Kenneth Yoshimoto (SDSC)
-                    <br>Subhashini Sivagnanam (SDSC)
-                    <br>Salvador Dura-Bernal (SUNY Downstate)
-                    <br>Matteo Cantarelli (Metacell)
-                </p>
+                <ul>
+                    <li>Matti Hamalainen (co-PI), MGH</li>
+                    <li>Michael Hines (co-PI), Yale</li>
+                    <li>Noam Peled, MGH</li>
+                    <li>Ted Carnevale, Yale</li>
+                    <li>Robert McDougal, Yale</li>
+                    <li>Christopher Moore, Brown</li>
+                    <li>Amitava Majumdar, SDSC</li>
+                    <li>Kenneth Yoshimoto, SDSC</li>
+                    <li>Subhashini Sivagnanam, SDSC</li>
+                    <li>Salvador Dura-Bernal, SUNY Downstate</li>
+                    <li>Matteo Cantarelli, Metacell</li>
+                </ul>
             </div>
+            
             <br><br>
 
         </div> <!-- close content -->
@@ -181,111 +182,184 @@
     // ----------------------- //
     // --- Developer Table --- //
     // ----------------------- //
-    document.querySelectorAll('img[data-github]').forEach(img => {
+
+    // Get GitHub images //
+    // ----------------- //
+// Load images from repo, fallback to GitHub if not found
+document.querySelectorAll('img[data-github]').forEach(img => {
     const user = img.getAttribute('data-github');
-    if (user) {
-        img.src = `https://github.com/${user}.png`;
-    } else {
-        img.src = 'default.png'; // fallback
+    if (!user) {
+        img.src = 'default.png'; // fallback image
+        return;
     }
+
+    const repoURL = `https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/developers/${user}.png`;
+    const githubURL = `https://github.com/${user}.png`;
+
+    const testImage = new Image();
+    testImage.onload = () => {
+        img.src = repoURL;
+    };
+    testImage.onerror = () => {
+        img.src = githubURL;
+    };
+    testImage.src = repoURL;
+});
+
+
+    // Set section width //
+    // ----------------- //
+    window.addEventListener("load", () => {
+        const activeCards = document.querySelectorAll(".dev-grid:not(.inactive) .dev-card");
+
+        activeCards.forEach(card => {
+            const name = card.querySelector('.name');
+            const image = card.querySelector('img');
+
+            const imageWidth = image.offsetWidth;
+            const nameScrollWidth = name.scrollWidth;
+            const baseWidth = Math.max(imageWidth, 0); // fallback in case
+
+            if (nameScrollWidth > baseWidth) {
+                // Name is wider than image → expand card
+                card.style.width = `${nameScrollWidth + 20}px`;
+            } else {
+                // Otherwise match image width (plus padding if you want)
+                card.style.width = `${imageWidth + 20}px`;
+            }
+        });
     });
 
-    // window.addEventListener("load", () => {
-    //     const names = document.querySelectorAll(".dev-card .name");
-    //     let maxWidth = 0;
+    // // Tooltips for names //
+    // // ------------------ //
+    // document.querySelectorAll('.dev-card .name').forEach(nameElement => {
+    // const originalText = nameElement.textContent;
+    // const checkOverflow = () => {
+    //     // Check if the name is overflowing
+    //     const isOverflowing = nameElement.scrollWidth > nameElement.clientWidth;
 
-    //     names.forEach(name => {
-    //         const width = name.offsetWidth;
-    //         if (width > maxWidth) maxWidth = width;
-    //     });
+    //     if (isOverflowing && !nameElement.querySelector('a')) {
+    //         // Create the anchor tag when the name overflows
+    //         const anchor = document.createElement('a');
+    //         anchor.setAttribute('href', 'javascript:void(0)');
+    //         anchor.setAttribute('tabindex', '-1');
+    //         anchor.setAttribute('name-tooltip', originalText);
+    //         anchor.textContent = originalText;
+    //         nameElement.innerHTML = '';  // Clear the name element
+    //         nameElement.appendChild(anchor);
+    //     } else if (!isOverflowing && nameElement.querySelector('a')) {
+    //         // Remove the anchor tag if the name is no longer overflowing
+    //         nameElement.innerHTML = originalText;  // Restore original text
+    //     }
+    // };
 
-    //     document.querySelectorAll(".dev-card").forEach(card => {
-    //         card.style.width = `${maxWidth + 20}px`; // add padding if needed
-    //     });
+    // // Check overflow initially and on window resize
+    // checkOverflow();
+    //     window.addEventListener('resize', checkOverflow);
     // });
 
-    window.addEventListener("load", () => {
-        const activeCards = document.querySelectorAll(".dev-grid:not(.inactive) .dev-card .name");
-        let maxWidth = 0;
+    // (() => {
+    //     let tooltipVisible = false;
 
-        activeCards.forEach(name => {
-            const width = name.offsetWidth;
-            if (width > maxWidth) maxWidth = width;
-        });
+    //     document.querySelectorAll('.dev-card .name a[name-tooltip]').forEach(link => {
+    //         // on hover-in
+    //         link.addEventListener('mouseenter', () => {
+    //         // only if truly truncated and no tooltip is up
+    //         if (tooltipVisible) return;
+    //         // delay showing
+    //         link._tt = setTimeout(() => {
+    //             // remove old
+    //             document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
+    //             // build new
+    //             const tip = document.createElement('div');
+    //             tip.className = 'name-tooltip';
+    //             tip.innerText = link.getAttribute('name-tooltip');
+    //             document.body.appendChild(tip);
+    //             // position below link
+    //             const r = link.getBoundingClientRect();
+    //             tip.style.position = 'absolute';
+    //             tip.style.left = `${r.left + window.scrollX}px`;
+    //             tip.style.top  = `${r.bottom + window.scrollY + 4}px`;
+    //             // fade in
+    //             requestAnimationFrame(() => { tip.style.opacity = '1'; });
+    //             tooltipVisible = true;
+    //         }, 300);  // delay in ms
+    //         });
 
-        document.querySelectorAll(".dev-grid:not(.inactive) .dev-card").forEach(card => {
-            card.style.width = `${maxWidth + 20}px`; // only for active devs
-        });
-    });
+    //         // on hover-out
+    //         link.addEventListener('mouseleave', () => {
+    //             clearTimeout(link._tt);
+    //             document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
+    //             tooltipVisible = false;
+    //         });
+    //     });
+    // })();
 
-    // Tooltips for names //
-    // ------------------ //
-    document.querySelectorAll('.dev-card .name').forEach(nameElement => {
-    const originalText = nameElement.textContent;  // Store the original name text
+// Tooltips for names and positions //
+// --------------------------------- //
+document.querySelectorAll('.dev-card .name, .dev-card .position').forEach(textElement => {
+    const originalText = textElement.textContent;  // Store the original text
     const checkOverflow = () => {
-        // Check if the name is overflowing
-        const isOverflowing = nameElement.scrollWidth > nameElement.clientWidth;
+        // Check if the text is overflowing
+        const isOverflowing = textElement.scrollWidth > textElement.clientWidth;
 
-        if (isOverflowing && !nameElement.querySelector('a')) {
-            // Create the anchor tag when the name overflows
+        if (isOverflowing && !textElement.querySelector('a')) {
+            // Create the anchor tag when the text overflows
             const anchor = document.createElement('a');
-            anchor.setAttribute('href', '#');
+            anchor.setAttribute('href', 'javascript:void(0)');
+            anchor.setAttribute('tabindex', '-1');
             anchor.setAttribute('name-tooltip', originalText);
             anchor.textContent = originalText;
-            nameElement.innerHTML = '';  // Clear the name element
-            nameElement.appendChild(anchor);
-        } else if (!isOverflowing && nameElement.querySelector('a')) {
-            // Remove the anchor tag if the name is no longer overflowing
-            nameElement.innerHTML = originalText;  // Restore original text
+            textElement.innerHTML = '';  // Clear the text element
+            textElement.appendChild(anchor);
+        } else if (!isOverflowing && textElement.querySelector('a')) {
+            // Remove the anchor tag if the text is no longer overflowing
+            textElement.innerHTML = originalText;  // Restore original text
         }
     };
 
     // Check overflow initially and on window resize
-    checkOverflow();
-        window.addEventListener('resize', checkOverflow);
-    });
+    window.addEventListener('load', checkOverflow);
+    window.addEventListener('resize', checkOverflow);
+});
 
-    (() => {
-  let tooltipVisible = false;
+(() => {
+    let tooltipVisible = false;
 
-  document.querySelectorAll('.dev-card .name a[name-tooltip]').forEach(link => {
-    // on hover-in
-    link.addEventListener('mouseenter', () => {
-      // only if truly truncated and no tooltip is up
-      if (tooltipVisible) return;
-    //   if (link.scrollWidth <= link.clientWidth) return;
+    // Delegate hover events
+    document.addEventListener('mouseenter', (e) => {
+        const link = e.target.closest('.dev-card .name a[name-tooltip], .dev-card .position a[name-tooltip]');
+        if (!link) return;
+        if (tooltipVisible) return;
 
-      // delay showing
-      link._tt = setTimeout(() => {
-        // remove old
+        link._tt = setTimeout(() => {
+            document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
+
+            const tip = document.createElement('div');
+            tip.className = 'name-tooltip';
+            tip.innerText = link.getAttribute('name-tooltip');
+            document.body.appendChild(tip);
+
+            const r = link.getBoundingClientRect();
+            tip.style.position = 'absolute';
+            tip.style.left = `${r.left + window.scrollX}px`;
+            tip.style.top = `${r.bottom + window.scrollY + 4}px`;
+
+            requestAnimationFrame(() => { tip.style.opacity = '1'; });
+            tooltipVisible = true;
+        }, 300);  // 300ms delay
+    }, true);
+
+    document.addEventListener('mouseleave', (e) => {
+        const link = e.target.closest('.dev-card .name a[name-tooltip], .dev-card .position a[name-tooltip]');
+        if (!link) return;
+
+        clearTimeout(link._tt);
         document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
-
-        // build new
-        const tip = document.createElement('div');
-        tip.className = 'name-tooltip';
-        tip.innerText = link.getAttribute('name-tooltip');
-        document.body.appendChild(tip);
-
-        // position below link
-        const r = link.getBoundingClientRect();
-        tip.style.position = 'absolute';
-        tip.style.left = `${r.left + window.scrollX}px`;
-        tip.style.top  = `${r.bottom + window.scrollY + 4}px`;
-
-        // fade in
-        requestAnimationFrame(() => { tip.style.opacity = '1'; });
-        tooltipVisible = true;
-      }, 300);  // 300ms delay
-    });
-
-    // on hover-out
-    link.addEventListener('mouseleave', () => {
-      clearTimeout(link._tt);
-      document.querySelectorAll('.name-tooltip').forEach(t => t.remove());
-      tooltipVisible = false;
-    });
-  });
+        tooltipVisible = false;
+    }, true);
 })();
+
 
 
     // ------------------- //

@@ -636,11 +636,13 @@ code {
 }
 
 .dev-card img {
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
     object-fit: cover;
     border-radius: 50%;
     display: block;
+    aspect-ratio: 1 / 1;
+    object-position: center;
 }
 
 .dev-card .name {
@@ -675,7 +677,16 @@ code {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    cursor: pointer;
+    cursor: text;
+}
+
+.dev-grid .dev-card .position {
+    /* margin-top: 8px; */
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: text;
 }
 
 /* Tooltip styling */
@@ -696,6 +707,12 @@ code {
     transition: opacity 0.3s ease;
     z-index: 9999;
     white-space: nowrap;
+}
+
+.name a, .position a{
+    color: #000;
+    text-decoration: none;
+    cursor: text;
 }
 
 /* Dark mode */
@@ -738,6 +755,17 @@ body.dark-mode .name-tooltip {
 /* body.dark-mode .name-tooltip::after {
     background: var(--light-purple);
 } */
+
+.collaborators ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collaborators li {
+    margin-bottom: 0px;
+    font-size: 0.90em;
+}
 
 /*
 # --------------------
