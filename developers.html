@@ -470,6 +470,31 @@
         }, true);
     })();
 
+    // --- More dropdown toggle handlers ---
+    function toggleDropdown() {
+        const dropdownContent = document.querySelector('.dropdown-content');
+        dropdownContent.style.display =
+            dropdownContent.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Attach click to the button once DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        document
+            .getElementById('dropdownButton')
+            .addEventListener('click', event => {
+                event.stopPropagation();    // don’t let the outside-click closer run
+                toggleDropdown();
+            });
+    });
+
+    // Close if clicking anywhere outside the .dropdown
+    window.addEventListener('click', event => {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelector('.dropdown-content').style.display = 'none';
+        }
+    });
+
+
     // ------------------- //
     // --- Card Popups --- //
     // ------------------- //
