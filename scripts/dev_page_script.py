@@ -4,6 +4,9 @@ import json
 import requests
 import datetime
 
+# go up one level in the directory
+os.chdir(os.path.join(os.path.dirname(__file__), '..'))
+
 with open('persons.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
