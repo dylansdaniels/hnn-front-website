@@ -19,12 +19,12 @@ main_developers = {
 date = datetime.datetime.now().strftime("%Y-%m-%d")
 
 page_contents=f"""
-    <div id="content-wrapper">
-        <div id="content">
-            <!--
-            # Title: Developers
-            # Updated: {date}
-            -->
+            <div id="content-wrapper">
+                <div id="content">
+                    <!--
+                    # Title: Developers
+                    # Updated: {date}
+                    -->
 """
 
 # %%
@@ -38,24 +38,24 @@ active_developers = {
 active_html = ""
 
 active_head = """
-            <br>
-            <h2 style="text-align: center;">
-                Active Development Team
-            </h2>
+                    <br>
+                    <h2 style="text-align: center;">
+                        Active Development Team
+                    </h2>
 
-            <div class="dev-grid">
+                    <div class="dev-grid">
 """
 
 active_template="""
-                <div class="dev-card">
-                    <img data-github="{username}" />
-                    <div class="name">{name}</div>
-                    <div class="position">{position}</div>
-                </div>
+                        <div class="dev-card">
+                            <img data-github="{username}" />
+                            <div class="name">{name}</div>
+                            <div class="position">{position}</div>
+                        </div>
 """
 
 active_tail="""
-            </div>
+                    </div>
 """
 
 active_html += active_head
@@ -86,23 +86,23 @@ inactive_developers = {
 inactive_html = ""
 
 inactive_head = """
-            <br>
-            <h2 style="text-align: center;">
-                All Developers
-            </h2>
+                    <br>
+                    <h2 style="text-align: center;">
+                        All Developers
+                    </h2>
 
-            <div class="dev-grid inactive">
+                    <div class="dev-grid inactive">
 """
 
 inactive_template="""
-                <div class="dev-card">
-                    <img data-github="{username}" />
-                    <div class="name">{name}</div>
-                </div>
+                        <div class="dev-card">
+                            <img data-github="{username}" />
+                            <div class="name">{name}</div>
+                        </div>
 """
 
 inactive_tail="""
-            </div>
+                    </div>
 """
 
 inactive_html += inactive_head
@@ -161,24 +161,24 @@ for username in other_contributors:
 contributor_html = ""
 
 contributor_head = """
-            <br>
-            <h2 style="text-align: center;">
-                Additional Contributors
-            </h2>
+                    <br>
+                    <h2 style="text-align: center;">
+                        Additional Contributors
+                    </h2>
 
-            <div class="dev-grid additional">
+                    <div class="dev-grid additional">
 """
 
 contributor_template = """
-                <div class="dev-card">
-                    <a href="https://github.com/{username}" alt="{name}">
-                        <img data-github="{username}" alt="{name}" />
-                    </a>
-                </div>
+                        <div class="dev-card">
+                            <a href="https://github.com/{username}" alt="{name}">
+                                <img data-github="{username}" alt="{name}" />
+                            </a>
+                        </div>
 """
 
 contributor_tail = """
-            </div>
+                    </div>
 """
 
 contributor_html += contributor_head
@@ -213,31 +213,31 @@ with open(tail_path, "r") as f:
     tail_html = f.read()
 
 collaborators_html = """
-            <br>
-            <h2 style="text-align: center;">
-                Collaborators
-            </h2>
-            <div class="collaborators">
-                <ul>
-                    <li>Matti Hamalainen (co-PI), MGH</li>
-                    <li>Michael Hines (co-PI), Yale</li>
-                    <li>Noam Peled, MGH</li>
-                    <li>Ted Carnevale, Yale</li>
-                    <li>Robert McDougal, Yale</li>
-                    <li>Christopher Moore, Brown</li>
-                    <li>Amitava Majumdar, SDSC</li>
-                    <li>Kenneth Yoshimoto, SDSC</li>
-                    <li>Subhashini Sivagnanam, SDSC</li>
-                    <li>Salvador Dura-Bernal, SUNY Downstate</li>
-                    <li>Matteo Cantarelli, Metacell</li>
-                </ul>
-            </div>
+                    <br>
+                    <h2 style="text-align: center;">
+                        Collaborators
+                    </h2>
+                    <div class="collaborators">
+                        <ul>
+                            <li>Matti Hamalainen (co-PI), MGH</li>
+                            <li>Michael Hines (co-PI), Yale</li>
+                            <li>Noam Peled, MGH</li>
+                            <li>Ted Carnevale, Yale</li>
+                            <li>Robert McDougal, Yale</li>
+                            <li>Christopher Moore, Brown</li>
+                            <li>Amitava Majumdar, SDSC</li>
+                            <li>Kenneth Yoshimoto, SDSC</li>
+                            <li>Subhashini Sivagnanam, SDSC</li>
+                            <li>Salvador Dura-Bernal, SUNY Downstate</li>
+                            <li>Matteo Cantarelli, Metacell</li>
+                        </ul>
+                    </div>
 """
 
 page_contents_close = """
-            <br><br>
-        </div> <!-- close content -->
-    </div> <!-- close content wrapper -->
+                    <br><br>
+                </div> <!-- close content -->
+            </div> <!-- close content wrapper -->
 """
 
 html_out = head_html + page_contents + active_html + inactive_html + contributor_html + collaborators_html + page_contents_close + tail_html
