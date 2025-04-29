@@ -632,8 +632,8 @@ code {
 }
 
 .dev-card img {
-    width: 175px;
-    height: 175px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
     display: block;
@@ -658,7 +658,7 @@ code {
 }
 
 .dev-grid.inactive .dev-card {
-    width: 120px;
+    width: 130px;
 }
 
 .dev-grid.additional .dev-card {

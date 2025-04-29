@@ -10,11 +10,6 @@ os.chdir(os.path.join(os.path.dirname(__file__), '..'))
 with open('persons.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-# collect all main developer github usernames
-main_developers = {
-    info["github"] for info in data.values() if info["github"]
-}
-
 # get current date only in YYYY-MM-DD
 date = datetime.datetime.now().strftime("%Y-%m-%d")
 
@@ -124,6 +119,18 @@ inactive_html += inactive_tail
 # --------------------------------------------------
 # Build additional contributors section
 
+# get main developer gh usernames from json
+developer_usernames = {
+    info["github"] for info in data.values()
+    if (info["github"] and (info["status"] != "contributor"))
+}
+
+# get contributor gh usernames from json
+contributor_usernames = {
+    info['github'] for info in data.values()
+    if (info["github"] and (info["status"] == "contributor"))
+}
+
 # repos to check
 repo_urls = [
     "https://api.github.com/repos/jonescompneurolab/hnn-core/contributors",
@@ -135,16 +142,18 @@ all_contributors = set()
 
 for url in repo_urls:
     response = requests.get(url)
-    contributors = response.json()
-    for user in contributors:
+    fetched_contributors = response.json()
+    for user in fetched_contributors:
         all_contributors.add(user['login'])
 
-# get new contributors
+all_contributors = all_contributors.union(contributor_usernames)
+
+# get contributors not listed in active/inactive developers sections
 other_contributors = sorted(
-    user for user in all_contributors if user not in main_developers
+    user for user in all_contributors if user not in developer_usernames
 )
 
-# get full names
+# get names of contributors if listed
 contributors_with_names = {}
 for username in other_contributors:
     user_url = f"https://api.github.com/users/{username}"
@@ -188,8 +197,7 @@ for username, name in contributors_with_names.items():
 
 contributor_html += contributor_tail
 
-print(contributor_html)
-# %%
+# print(contributor_html)
 
 # %%
 # --------------------------------------------------
