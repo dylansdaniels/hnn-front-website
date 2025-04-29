@@ -42,11 +42,13 @@ active_head = """
 """
 
 active_template="""
-                        <div class="dev-card">
-                            <img data-github="{username}" />
-                            <div class="name">{name}</div>
-                            <div class="position">{position}</div>
-                        </div>
+                        <a class="grid-link" href="{website_link}">
+                            <div class="dev-card">
+                                <img data-github="{username}" />
+                                <div class="name">{name}</div>
+                                <div class="position">{position}</div>
+                            </div>
+                        </a>
 """
 
 active_tail="""
@@ -59,11 +61,18 @@ for name, v in active_developers.items():
 
     username = v["github"]
     position = v["position"]
+    website = v["website"]
+
+    if website is None or website == "":
+        website_link = f"https://github.com/{username}"
+    else:
+        website_link = website
 
     active_html += active_template.format(
         name=name,
         username=username,
         position=position,
+        website_link=website_link
     )
 
 active_html += active_tail
@@ -90,10 +99,12 @@ inactive_head = """
 """
 
 inactive_template="""
-                        <div class="dev-card">
-                            <img data-github="{username}" />
-                            <div class="name">{name}</div>
-                        </div>
+                        <a class="grid-link" href="{website_link}">
+                            <div class="dev-card">
+                                <img data-github="{username}" />
+                                <div class="name">{name}</div>
+                            </div>
+                        </a>
 """
 
 inactive_tail="""
@@ -105,10 +116,17 @@ inactive_html += inactive_head
 for name, v in inactive_developers.items():
 
     username = v["github"]
+    website = v["website"]
+
+    if website is None or website == "":
+        website_link = f"https://github.com/{username}"
+    else:
+        website_link = website
 
     inactive_html += inactive_template.format(
         name=name,
         username=username,
+        website_link=website_link
     )
 
 inactive_html += inactive_tail
