@@ -14,7 +14,25 @@
         <div id="main">
             <div class="topbar">
                 <div id="topbar-wrapper">
+                    <div class="hamburger" onclick="toggleMobileMenu()">
+                        ☰
+                    </div>
                     <div class="links">
+
+                        <a href="homepage.html" class="home-link">
+                            <div class="home-icon-container">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24" 
+                                    height="24"
+                                    viewBox="0 0 24 24" 
+                                    class="home-icon">
+                                    <path
+                                        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                                    />
+                                </svg>
+                            </div>
+                        </a>
                         <a href="https://jonescompneurolab.github.io/hnn-core/stable/install.html">
                             Install
                         </a>
@@ -24,8 +42,8 @@
                         <a href="https://jonescompneurolab.github.io/hnn-core/stable/index.html">
                             Documentation
                         </a>
-                        <a href="">
-                            Help
+                        <a href="https://hnn.brown.edu/3031-2/">
+                            Contact
                         </a>
                     </div>
                     <!-- Right side of topbar-->
@@ -50,9 +68,6 @@
                                 <a href="https://github.com/jonescompneurolab/hnn-core/discussions/categories/announcements">
                                     Announcements
                                 </a>
-                                <a href="https://hnn.brown.edu/3031-2/">
-                                    Contact Us
-                                </a>
                             </div>
                         </div>
                         <div class="social-icons">
@@ -67,8 +82,37 @@
                             </a>
                         </div>
                     </div>
+                    <div id="mobile-menu" class="mobile-menu">
+                        <div class="links">
+                            <a href="homepage.html" class="home-link">
+                                Home
+                            </a>
+                            <a href="https://jonescompneurolab.github.io/hnn-core/stable/install.html">
+                                Install
+                            </a>
+                            <a href="https://dylansdaniels.github.io/website_redesign/content/preface.html">
+                                Tutorials
+                            </a>
+                            <a href="https://jonescompneurolab.github.io/hnn-core/stable/index.html">
+                                Documentation
+                            </a>
+                            <a href="https://hnn.brown.edu/3031-2/">
+                                Contact
+                            </a>
+                            <a href="https://hnn.brown.edu/development-team/">
+                                Developers
+                            </a>
+                            <a href="https://hnn.brown.edu/publications/">
+                                Publications
+                            </a>
+                            <a href="https://github.com/jonescompneurolab/hnn-core/discussions/categories/announcements">
+                                Announcements
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div id="content-wrapper">
                 <div id="content">
                     <!--
@@ -549,6 +593,50 @@
             }
         });
     });
+
+            window.addEventListener('scroll', () => {
+                const scrollX = window.scrollX;
+                document.querySelector('.topbar').style.transform = `translateX(${-scrollX}px)`;
+            });
+
+
+            // Toggle mobile menu code
+            // --------------------
+
+            // function toggleMobileMenu() {
+            //     const menu = document.getElementById("mobile-menu");
+            //     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            // }
+
+            function toggleMobileMenu() {
+                const menu = document.getElementById("mobile-menu");
+                const hamburger = document.querySelector(".hamburger");
+                const isVisible = menu.style.display === "flex";
+
+                menu.style.display = isVisible ? "none" : "flex";
+                hamburger.classList.toggle("menu-open", !isVisible);
+            }
+
+            // Close the menu if clicking anywhere outside of the menu or hamburger
+            document.addEventListener("click", function(event) {
+                const menu = document.getElementById("mobile-menu");
+                const hamburger = document.querySelector(".hamburger");
+                
+                // Check if the click is outside of the hamburger and menu
+                if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+                    menu.style.display = "none";
+                    hamburger.classList.remove("menu-open");
+                }
+            });
+
+            // Close the menu on window resize (if the width is greater than 650px)
+            window.addEventListener("resize", function() {
+                if (window.innerWidth > 650) {
+                    const menu = document.getElementById("mobile-menu");
+                    menu.style.display = "none"; // Close the menu if resizing above 650px
+                }
+            });
+
         </script>
     </body>
 </html>

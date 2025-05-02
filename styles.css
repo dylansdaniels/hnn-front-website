@@ -15,6 +15,7 @@ body {
     transition: margin-left .5s;
     margin: 0px;
     padding: 0px;
+    min-width: var(--content-min-width);
 }
 
 h1, h2, h3, h4 {
@@ -142,6 +143,7 @@ code {
     align-items: center;
     padding: 0 0px;
     width: 100%;
+    min-width: var(--content-min-width);
     flex-direction: column;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
     position: fixed;
@@ -155,7 +157,14 @@ code {
     justify-content: space-between; /* Push links to left and dropdown/socials to right */
     padding: 0 20px;
     width: 100%;
-    max-width: 1220px;
+    max-width: 95%;
+    min-width: var(--content-min-width);
+    box-sizing: border-box;
+}
+
+.links {
+    display: flex;
+    align-items: center;
 }
 
 /* Left links (Install, Tutorials, etc.) */
@@ -164,13 +173,58 @@ code {
     font-size: 18px;
     padding: 0px 10px;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+
 }
 
 .links a:hover {
     color: var(--hnn-violet);
+    /* transition: transform 0.3s ease;
+    transform: scale(1.05); */
     text-decoration: underline;
     text-underline-offset: 10px;
     text-decoration-thickness: 3px;
+}
+
+.home-link {
+    display: inline-flex;
+    text-decoration: none;
+    height: inherit;
+    padding: 0px;
+    align-items: center;
+}
+
+.home-icon-container {
+    height: inherit;
+    align-items: center;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+
+}
+
+.home-icon {
+    fill: grey;
+    height: 22px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.home-icon:hover {
+    /* transform: scale(1.05); */
+    fill: var(--hnn-violet);
+}
+
+/* add underline to home icon */
+.home-icon-container:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -9px; /* matches text-underline-offset: 10px */
+    height: 3px;
+    background-color: var(--hnn-violet);
 }
 
 /* Right section for dropdown and social icons */
@@ -178,6 +232,8 @@ code {
     display: flex;
     align-items: center;
     gap: 15px; /* Space between dropdown and social icons */
+    margin-right: 10px;
+    padding-left: 30px;
 }
 
 /* Dropdown styles */
@@ -205,6 +261,7 @@ code {
 .dropdown-text {
     display: inline-block;
     position: relative;
+    white-space: nowrap;
 }
 
 .caret {
@@ -672,10 +729,10 @@ code {
 # -------------------- 
 */
 
-@media screen and (max-height: 450px) {
+/* @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
-}
+} */
 
 /* 
 # --------------------
@@ -685,6 +742,7 @@ code {
 
 :root {
     --content-max-width: 920px;
+    --content-min-width: 650px;
 }
 
 /* Custom HNN colors */
@@ -699,4 +757,69 @@ code {
     --hnn-purple: #474095;
     --hnn-violet: #812A89;
     --hnn-yellow: #e5a734;
+}
+
+
+/* Highlighted Additions */
+.hamburger {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    user-select: none;
+    color: grey;
+}
+
+.mobile-menu {
+    display: none;
+    background-color: white;
+    border: 2px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    position: fixed;
+    top: 60px !important; /* below the topbar */
+    left: 30px;
+    width: auto;
+    z-index: 9998;
+}
+
+.mobile-menu .links {
+    display: flex;
+    line-height: 2;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    
+}
+
+.mobile-menu.show {
+    display: flex;
+}
+
+/* Keep social icons visible in mobile view */
+.mobile-menu .social-icons {
+    display: block;
+}
+
+.hamburger.menu-open { 
+    color: var(--hnn-violet);
+}
+
+/* Responsive toggle */
+@media screen and (max-width: 750px) {
+    .topbar-right .dropdown,
+
+    #topbar-wrapper > .links {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+   /* re-enable links inside the mobile menu */
+   #mobile-menu .links {
+       display: flex;
+       flex-direction: column;
+   }
 }
