@@ -443,6 +443,7 @@ code {
 
     display: -webkit-box !important;
     -webkit-line-clamp: 4 !important;
+            line-clamp: 4 !important;
     -webkit-box-orient: vertical !important; 
 }
 
@@ -665,62 +666,135 @@ code {
 
 /*
 # --------------------
-# Developers table
+# Developers Page
 # --------------------
 */
 
-/* Wrapper for the entire table */
-.developers-table {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-/* Title styling for the developers table */
-/* .developers-title {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-} */
-
-/* Grid container for profiles */
-.profile-grid {
+.dev-grid {
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px 40px;
     justify-content: center;
 }
 
-/* Individual profile container */
-.profile {
-    text-align: center;
-}
-
-/* Profile image styling */
-.profile-img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    transition: transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover effect for profile image */
-.profile-img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Link styling */
-.profile-link {
+.grid-link {
     text-decoration: none;
-    color: inherit;
-    display: inline-block;
-    margin-top: 10px;
+    color: #000;
+}
+
+.grid-link:hover {
+    color: #000;
+}
+
+.dev-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    /* width set dynamically by javascript */
+}
+
+.dev-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-position: center;
+}
+
+.dev-card .name {
+    margin-top: 8px;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.dev-card .position {
+    margin-top: 0px;
+    font-size: 0.85em;
+}
+
+.collaborators {
+    text-align: center;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+}
+
+.dev-grid.inactive .dev-card {
+    width: 130px;
+}
+
+.dev-grid.additional .dev-card {
+    width: 75px;
+}
+
+.dev-grid.additional {
+    gap: 10px 10px;
+}
+
+.dev-grid.inactive .dev-card .name {
+    margin-top: 8px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* cursor: text; */
+}
+
+.dev-grid .dev-card .position {
+    /* margin-top: 8px; */
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* cursor: text; */
+}
+
+.collaborators ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collaborators li {
+    margin-bottom: 0px;
+    font-size: 0.90em;
+}
+
+/* Tooltip styling */
+/* --------------- */
+/* Note: adapted from sidebar-tooltip in website-redesign */
+
+.name-tooltip {
+    will-change: transform;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    background: #fff;
+    border: 2px solid #ddd;
+    color: #000;
+    padding: 3px 6px;
+    border-radius: 10px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+.name a, .position a{
+    color: #000;
+    text-decoration: none;
+    cursor: text;
+}
+
+/* dark mode (placeholder for future addition) */
+body.dark-mode .name-tooltip {
+    background: #8d8d8d;
+    color: #fff;
+    border: 2px solid var(--hnn-violet);
 }
 
 /* 

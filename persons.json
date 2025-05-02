@@ -1,0 +1,127 @@
+{
+    "Template": {
+        "github": "",
+        "position": "",
+        "status": "",
+        "website": ""
+    },
+    "Stephanie R. Jones": {
+        "github": "stephanie-r-jones",
+        "position": "Principal Investigator",
+        "status": "active",
+        "website": "https://vivo.brown.edu/display/srj3"
+    },
+    "Mainak Jas": {
+        "github": "jasmainak",
+        "position": "Lead Developer",
+        "status": "active",
+        "website": ""
+    },
+    "Nicholas Tolley": {
+        "github": "ntolley",
+        "position": "Graduate Student",
+        "status": "active",
+        "website": ""
+    },
+    "Dylan Daniels": {
+        "github": "dylansdaniels",
+        "position": "Data Scientist",
+        "status": "active",
+        "website": ""
+    },
+    "Austin Soplata": {
+        "github": "asoplata",
+        "position": "Lead Software Engineer",
+        "status": "active",
+        "website": ""
+    },
+    "Carolina Fernandez": {
+        "github": "carolinafernandezp",
+        "position": "Postdoctoral Researcher",
+        "status": "active",
+        "website": ""
+    },
+    "Katharina Duecker": {
+        "github": "katduecker",
+        "position": "Postdoctoral Researcher",
+        "status": "active",
+        "website": ""
+    },
+    "Ryan Thorpe": {
+        "github": "rythorpe",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Sam Neymotin": {
+        "github": "samnemo",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Blake Caldwell": {
+        "github": "blakecaldwell",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Chris Bailey": {
+        "github": "cjayb",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "George Dang": {
+        "github": "gtdang",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Huzi Cheng": {
+        "github": "chenghuzi",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Abdul Samad Siddiqui": {
+        "github": "samadpls",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Sarah Pugliese": {
+        "github": "smpuglie",
+        "position": "Developer",
+        "status": "contributor",
+        "website": ""
+    },
+    "Carmen Kohl": {
+        "github": "kohl-carmen",
+        "position": "Developer",
+        "status": "contributor",
+        "website": ""
+    },
+    "Camilo Diaz": {
+        "github": "kmilo9999",
+        "position": "Developer",
+        "status": "inactive",
+        "website": ""
+    },
+    "Robert McDougal": {
+        "github": "ramcdougal",
+        "position": "Developer",
+        "status": "collaborator",
+        "website": ""
+    },
+    "Salvador Dura-Bernal": {
+        "github": "salvadord",
+        "position": "Developer",
+        "status": "collaborator",
+        "website": ""
+    },
+    "Kenneth Yoshimoto": {
+        "github": "kenloi",
+        "position": "Developer",
+        "status": "collaborator"
+    }
+}
