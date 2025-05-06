@@ -808,6 +808,21 @@ body.dark-mode .name-tooltip {
 
 /* 
 # --------------------
+# Publications Page
+# -------------------- 
+*/
+
+.publications {
+    text-align: center;
+    font-size: inherit
+}
+
+#content .publications p {
+    font-size: 1rem;
+}
+
+/* 
+# --------------------
 # Mobile Menu 
 # -------------------- 
 */
