@@ -813,13 +813,66 @@ body.dark-mode .name-tooltip {
 */
 
 .publications {
+    display: block;
+    max-width: 80%;
+    margin: auto;
+}
+
+#content .publications h2 {
     text-align: center;
-    font-size: inherit
 }
 
 #content .publications p {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-lighter);
 }
+
+#content .publications h3 {
+    color: var(--sidebar-purple)
+}
+
+#content .publications h3::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--sidebar-purple);
+}
+
+/* 
+# --------------------
+# Contact Page
+# -------------------- 
+*/
+
+.contact {
+    display: block;
+    max-width: 80%;
+    margin: auto;
+}
+
+#content .contact h2 {
+    text-align: center;
+}
+
+#content .contact h3 {
+    color: var(--sidebar-purple)
+}
+
+#content .contact p {
+    font-size: 1.1rem;
+    text-align: justify;
+    color: var(--text-lighter);
+}
+
+#content .contact h3::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--sidebar-purple);
+}
+
 
 /* 
 # --------------------
@@ -934,6 +987,7 @@ body.dark-mode .name-tooltip {
     --light-gray: #d3d3d3;
     --gentle-red: #ff7777;
     --text-light: #333; 
+    --text-lighter: #414141;
     --icon-base: #bababa;
     --icon-hover: #444;
     --sidebar-purple: #88548c;
