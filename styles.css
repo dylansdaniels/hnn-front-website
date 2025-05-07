@@ -73,7 +73,7 @@ a:hover {
     padding: 0px 0px;
     box-sizing: border-box;
     /* margin: 0 auto; */
-    margin-top: 70px;
+    margin-top: var(--topbar-height);
 }
 
 #content {
@@ -138,7 +138,7 @@ code {
 .topbar {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     background-color: #fff;
-    height: 70px;
+    height: var(--topbar-height);
     display: flex;
     align-items: center;
     padding: 0 0px;
@@ -151,13 +151,13 @@ code {
 }
 
 #topbar-wrapper {
-    height: 70px;
+    height: var(--topbar-height);
     display: flex;
     align-items: center;
     justify-content: space-between; /* Push links to left and dropdown/socials to right */
     padding: 0 20px;
     width: 100%;
-    max-width: 95%;
+    max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
     min-width: var(--content-min-width);
     box-sizing: border-box;
 }
@@ -170,7 +170,7 @@ code {
 /* Left links (Install, Tutorials, etc.) */
 .links a {
     color: grey;
-    font-size: 18px;
+    font-size: 17px;
     padding: 0px 10px;
     text-decoration: none;
     display: inline-flex;
@@ -242,7 +242,7 @@ code {
     align-items: center;
     position: relative;
     display: inline-flex;
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
     background: none;
     color: grey;
@@ -256,6 +256,7 @@ code {
     cursor: pointer;
     padding: 0px 10px;
     border: 3px solid #fff;
+    border-radius: 6px;
 }
 
 .dropdown-button:hover {
@@ -296,7 +297,7 @@ code {
     position: absolute;
     top: 125%;
     right: 0;
-    background-color: #f9f9f9;
+    background-color: #fff;
     width: auto;
     border: 2px solid var(--lighter-gray);
     border-radius: 6px;
@@ -330,7 +331,7 @@ code {
 /* Social icons styles */
 .social-icons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     padding: 0px;
 }
 
@@ -343,7 +344,7 @@ code {
 
 .social-icons a img {
     width: auto;
-    height: 24px;
+    height: 20px;
     object-fit: contain;
     display: block;
 }
@@ -883,10 +884,11 @@ body.dark-mode .name-tooltip {
 /* Highlighted Additions */
 .hamburger {
     display: none;
-    font-size: 32px;
+    font-size: 28px;
     cursor: pointer;
     user-select: none;
     color: grey;
+    padding: 0px 0px 5px 10px;
 }
 
 .hamburger:hover {
@@ -969,6 +971,7 @@ body.dark-mode .name-tooltip {
 :root {
     --content-max-width: 920px;
     --content-min-width: 650px;
+    --topbar-height: 64px;
 }
 
 /* Custom HNN colors */
