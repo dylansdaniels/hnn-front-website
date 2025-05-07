@@ -7,7 +7,9 @@ import datetime
 # go up one level in the directory
 os.chdir(os.path.join(os.path.dirname(__file__), '..'))
 
-with open('persons.json', 'r', encoding='utf-8') as f:
+dev_json_path = os.path.join('scripts','developers.json')
+
+with open(dev_json_path, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # get current date only in YYYY-MM-DD
@@ -226,17 +228,9 @@ head_path = os.path.join(
     "templates",
     "head.html",
 )
-tail_path = os.path.join(
-    os.getcwd(),
-    "templates",
-    "tail.html",
-)
 
 with open(head_path, "r") as f:
     head_html = f.read()
-
-with open(tail_path, "r") as f:
-    tail_html = f.read()
 
 collaborators_html = """
                     <br>
@@ -260,15 +254,17 @@ collaborators_html = """
                     </div>
 """
 
-page_contents_close = """
+tail_html = """
                     <br><br>
                 </div> <!-- close content -->
             </div> <!-- close content wrapper -->
+        </div> <!-- close main -->
+    </body>
+</html>
 """
 
-html_out = head_html + page_contents + active_html + inactive_html + contributor_html + collaborators_html + page_contents_close + tail_html
+html_out = head_html + page_contents + active_html + inactive_html + contributor_html + collaborators_html + tail_html
 
-# print(html_out)
 # %%
 with open("developers.html", "w") as f:
     f.write(html_out)
