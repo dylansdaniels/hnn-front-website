@@ -127,25 +127,56 @@ popups.forEach(popup => {
 
 // get GitHub images //
 // ----------------- //
-// Load images from repo, fallback to GitHub if not found
+// Load images from repo, then GitHub profiles, then fallback to default
 document.querySelectorAll('img[data-github]').forEach(img => {
     const user = img.getAttribute('data-github');
+    const defaultURL = `https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/developers/github_icon.png`;
+
     if (!user) {
-        img.src = 'default.png'; // fallback image
+        img.src = defaultURL;
         return;
     }
 
-    const repoURL = `https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/developers/${user}.png`;
+    const baseURL = `https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/developers/`;
+    const pngURL = `${baseURL}${user}.png`;
+    const jpgURL = `${baseURL}${user}.jpg`;
+    const jpegURL = `${baseURL}${user}.jpeg`;
     const githubURL = `https://github.com/${user}.png`;
 
-    const testImage = new Image();
-    testImage.onload = () => {
-        img.src = repoURL;
+    // Step 1: Try .png
+    const testPNG = new Image();
+    testPNG.onload = () => {
+        img.src = pngURL;
     };
-    testImage.onerror = () => {
-        img.src = githubURL;
+    testPNG.onerror = () => {
+        // Step 2: Try .jpg
+        const testJPG = new Image();
+        testJPG.onload = () => {
+            img.src = jpgURL;
+        };
+        testJPG.onerror = () => {
+            // Step 3: Try .jpeg
+            const testJPEG = new Image();
+            testJPEG.onload = () => {
+                img.src = jpegURL;
+            };
+            testJPEG.onerror = () => {
+                // Step 4: Try GitHub
+                const testGH = new Image();
+                testGH.onload = () => {
+                    img.src = githubURL;
+                };
+                testGH.onerror = () => {
+                    // Step 5: Final fallback
+                    img.src = defaultURL;
+                };
+                testGH.src = githubURL;
+            };
+            testJPEG.src = jpegURL;
+        };
+        testJPG.src = jpgURL;
     };
-    testImage.src = repoURL;
+    testPNG.src = pngURL;
 });
 
 // image tooltips for additional contributors

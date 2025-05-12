@@ -811,6 +811,9 @@ body.dark-mode .topbar .home-icon {
 body.dark-mode .topbar .home-icon:hover {
     fill: var(--light-purple);
 }
+body.dark-mode .home-icon-container:hover::after {
+    background-color: var(--light-purple) !important;
+}
 body.dark-mode .topbar .hamburger {
     color: var(--light-gray);
 }
