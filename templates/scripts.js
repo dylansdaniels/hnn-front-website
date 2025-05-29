@@ -91,8 +91,8 @@ cards.forEach(card => {
             popup.classList.add('show'); // add 'show' class to display the popup
             document.body.style.overflow = 'hidden'; // disable body scrolling
 
-            document.querySelector('.topbar').style.paddingRight = '15px';
-            document.querySelector('#content-wrapper').style.marginRight = '15px';
+            // document.querySelector('.topbar').style.paddingRight = '15px';
+            // document.querySelector('#content-wrapper').style.marginRight = '15px';
 
             // Reset scroll position when the popup is opened
             const popupBox = popup.querySelector('.popup-box');
@@ -112,8 +112,8 @@ document.querySelectorAll('.popup-close').forEach(button => {
             document.body.style.overflow = ''; // Re-enable body scrolling
 
             // Remove padding when popup is hidden
-            document.querySelector('.topbar').style.paddingRight = '';
-            document.querySelector('#content-wrapper').style.marginRight = '';
+            // document.querySelector('.topbar').style.paddingRight = '';
+            // document.querySelector('#content-wrapper').style.marginRight = '';
 
         }
     });
@@ -127,8 +127,8 @@ popups.forEach(popup => {
             document.body.style.overflow = ''; // Re-enable body scrolling
 
             // Remove padding when popup is hidden
-            document.querySelector('.topbar').style.paddingRight = '';
-            document.querySelector('#content-wrapper').style.marginRight = '';
+            // document.querySelector('.topbar').style.paddingRight = '';
+            // document.querySelector('#content-wrapper').style.marginRight = '';
 
         }
     });
