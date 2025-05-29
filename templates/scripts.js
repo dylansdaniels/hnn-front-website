@@ -91,6 +91,9 @@ cards.forEach(card => {
             popup.classList.add('show'); // add 'show' class to display the popup
             document.body.style.overflow = 'hidden'; // disable body scrolling
 
+            document.querySelector('.topbar').style.paddingRight = '15px';
+            document.querySelector('#content-wrapper').style.marginRight = '15px';
+
             // Reset scroll position when the popup is opened
             const popupBox = popup.querySelector('.popup-box');
             if (popupBox) {
@@ -107,6 +110,11 @@ document.querySelectorAll('.popup-close').forEach(button => {
         if (popupContainer) {
             popupContainer.classList.remove('show'); // Remove 'show' class to hide the popup
             document.body.style.overflow = ''; // Re-enable body scrolling
+
+            // Remove padding when popup is hidden
+            document.querySelector('.topbar').style.paddingRight = '';
+            document.querySelector('#content-wrapper').style.marginRight = '';
+
         }
     });
 });
@@ -117,6 +125,11 @@ popups.forEach(popup => {
         if (e.target === popup) { // Check if the click is outside the popup content
             popup.classList.remove('show'); // Remove 'show' class to hide the popup
             document.body.style.overflow = ''; // Re-enable body scrolling
+
+            // Remove padding when popup is hidden
+            document.querySelector('.topbar').style.paddingRight = '';
+            document.querySelector('#content-wrapper').style.marginRight = '';
+
         }
     });
 });
@@ -339,3 +352,29 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     });
 });
+
+
+// ----------------------------------------
+// Adjust padding for scrollbar presence
+// ----------------------------------------
+
+function adjustRightSpaceIfNoScrollbar() {
+    const hasVerticalScrollbar = window.innerWidth > document.documentElement.clientWidth;
+
+    if (!hasVerticalScrollbar) {
+        // add padding when scrollbar is not present
+        // document.body.style.paddingRight = '15px';
+        document.querySelector('.topbar').style.paddingRight = '15px';
+        document.querySelector('#content-wrapper').style.paddingRight = '15px';
+    } else {
+        // remove extra padding when scrollbar is present
+        // document.body.style.paddingRight = '';
+        document.querySelector('.topbar').style.paddingRight = '';
+        document.querySelector('#content-wrapper').style.paddingRight = '';
+    }
+}
+
+// Run once on load
+window.addEventListener('load', adjustRightSpaceIfNoScrollbar);
+// Run on resize (in case scrollbar appears/disappears)
+window.addEventListener('resize', adjustRightSpaceIfNoScrollbar);
