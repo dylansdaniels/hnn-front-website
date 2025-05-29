@@ -604,6 +604,7 @@ code {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Dynamic columns, no empty space */
     gap: 10px; /* Space between cells */
+    width: 100%;
     max-width: 100%; /* Ensure it doesn't exceed the container width */
     justify-items: center; /* Ensures logos are centered within their cells */
 }
