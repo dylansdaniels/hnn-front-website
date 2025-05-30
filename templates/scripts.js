@@ -162,6 +162,28 @@ popups.forEach(popup => {
     });
 });
 
+// Adjust padding for scrollbar presence
+function adjustRightSpaceIfNoScrollbar() {
+    const hasVerticalScrollbar = window.innerWidth > document.documentElement.clientWidth;
+
+    if (!hasVerticalScrollbar) {
+        // add padding when scrollbar is not present
+        // document.querySelector('.topbar').style.paddingRight = '15px';
+        document.querySelector('#content-wrapper').style.paddingRight = '15px';
+        document.querySelector('#content-wrapper').style.paddingLeft = '15px';
+    } else {
+        // remove extra padding when scrollbar is present
+        // document.querySelector('.topbar').style.paddingRight = '';
+        document.querySelector('#content-wrapper').style.paddingRight = '';
+        document.querySelector('#content-wrapper').style.paddingLeft = '';
+    }
+}
+
+// Run once on load
+window.addEventListener('DOMContentLoaded', adjustRightSpaceIfNoScrollbar);
+// Run on resize (in case scrollbar appears/disappears)
+window.addEventListener('resize', adjustRightSpaceIfNoScrollbar);
+
 
 
 // ----------------------- //
@@ -384,27 +406,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ----------------------------------------
-// Adjust padding for scrollbar presence
-// ----------------------------------------
-
-function adjustRightSpaceIfNoScrollbar() {
-    const hasVerticalScrollbar = window.innerWidth > document.documentElement.clientWidth;
-
-    if (!hasVerticalScrollbar) {
-        // add padding when scrollbar is not present
-        // document.body.style.paddingRight = '15px';
-        document.querySelector('.topbar').style.paddingRight = '15px';
-        document.querySelector('#content-wrapper').style.paddingRight = '15px';
-    } else {
-        // remove extra padding when scrollbar is present
-        // document.body.style.paddingRight = '';
-        document.querySelector('.topbar').style.paddingRight = '';
-        document.querySelector('#content-wrapper').style.paddingRight = '';
-    }
-}
-
-// Run once on load
-window.addEventListener('DOMContentLoaded', adjustRightSpaceIfNoScrollbar);
-// Run on resize (in case scrollbar appears/disappears)
-window.addEventListener('resize', adjustRightSpaceIfNoScrollbar);

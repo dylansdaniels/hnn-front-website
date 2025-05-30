@@ -1303,7 +1303,7 @@ body.dark-mode #content .contact h3::after {
 */
 
 :root {
-    --content-max-width: 920px;
+    --content-max-width: 950px;
     --content-min-width: 650px;
     --topbar-height: 64px;
 }
