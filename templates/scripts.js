@@ -88,16 +88,26 @@ cards.forEach(card => {
         const popupId = card.getAttribute('data-popup');
         const popup = document.getElementById(popupId);
         if (popup) {
-            popup.classList.add('show'); // add 'show' class to display the popup
-            document.body.style.overflow = 'hidden'; // disable body scrolling
+            popup.classList.add('show'); // show popup
 
-            // document.querySelector('.topbar').style.paddingRight = '15px';
-            // document.querySelector('#content-wrapper').style.marginRight = '15px';
+            // Lock background scrolling without hiding the scrollbar
+            // ------------------------------------------------------
+            // 1) get current y position
+            const scrollY = window.scrollY;
+            // 2) offset the page by the current y position
+            //
+            //    this is necessary because the position of
+            //    the body is reset when the position is
+            //    changed to 'fixed', which will happen when
+            //    the "lock-scroll" class is added below
+            document.body.style.top = `-${scrollY}px`;
+            //3) add "lock-scroll" class
+            document.body.classList.add('lock-scroll');
 
-            // Reset scroll position when the popup is opened
+            // Reset popup scroll
             const popupBox = popup.querySelector('.popup-box');
             if (popupBox) {
-                popupBox.scrollTop = 0; // Set scroll position to the top
+                popupBox.scrollTop = 0;
             }
         }
     });
@@ -108,13 +118,22 @@ document.querySelectorAll('.popup-close').forEach(button => {
     button.addEventListener('click', () => {
         const popupContainer = button.closest('.popup-container');
         if (popupContainer) {
-            popupContainer.classList.remove('show'); // Remove 'show' class to hide the popup
-            document.body.style.overflow = ''; // Re-enable body scrolling
+            popupContainer.classList.remove('show'); // hide popup
 
-            // Remove padding when popup is hidden
-            // document.querySelector('.topbar').style.paddingRight = '';
-            // document.querySelector('#content-wrapper').style.marginRight = '';
-
+            // Unlock background scrolling and restore y position
+            // ------------------------------------------------------
+            // 1) remove "lock-scroll" class
+            document.body.classList.remove('lock-scroll');
+            // 2) get the y position offset used in top and 
+            //    invert its value
+            //
+            //    e.g., if the offset used above was -100px,
+            //    this yields a const of 100px
+            const scrollY = parseInt(document.body.style.top || '0') * -1;
+            // 3) clear the style.top offset
+            document.body.style.top = '';
+            // 4) scroll the page back to its previous position
+            window.scrollTo(0, scrollY);
         }
     });
 });
@@ -122,17 +141,28 @@ document.querySelectorAll('.popup-close').forEach(button => {
 // Close popup on outside click
 popups.forEach(popup => {
     popup.addEventListener('click', (e) => {
-        if (e.target === popup) { // Check if the click is outside the popup content
-            popup.classList.remove('show'); // Remove 'show' class to hide the popup
-            document.body.style.overflow = ''; // Re-enable body scrolling
+        if (e.target === popup) {
+            popup.classList.remove('show');
 
-            // Remove padding when popup is hidden
-            // document.querySelector('.topbar').style.paddingRight = '';
-            // document.querySelector('#content-wrapper').style.marginRight = '';
-
+            // Unlock background scrolling and restore y position
+            // ------------------------------------------------------
+            // 1) remove "lock-scroll" class
+            document.body.classList.remove('lock-scroll');
+            // 2) get the y position offset used in top and 
+            //    invert its value
+            //
+            //    e.g., if the offset used above was -100px,
+            //    this yields a const of 100px
+            const scrollY = parseInt(document.body.style.top || '0') * -1;
+            // 3) clear the style.top offset
+            document.body.style.top = '';
+            // 4) scroll the page back to its previous position
+            window.scrollTo(0, scrollY);
         }
     });
 });
+
+
 
 // ----------------------- //
 // --- Developer Table --- //
@@ -375,6 +405,6 @@ function adjustRightSpaceIfNoScrollbar() {
 }
 
 // Run once on load
-window.addEventListener('load', adjustRightSpaceIfNoScrollbar);
+window.addEventListener('DOMContentLoaded', adjustRightSpaceIfNoScrollbar);
 // Run on resize (in case scrollbar appears/disappears)
 window.addEventListener('resize', adjustRightSpaceIfNoScrollbar);

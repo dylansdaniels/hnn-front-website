@@ -498,6 +498,34 @@ code {
 # -------------------- 
 */
 
+/* 
+    Keep the scrollbar space reserved in the main .body
+    while prevent scrolling for page content behind the 
+    popup card.
+
+    Width 100% ensures the body doesn't shrink.
+*/
+body.lock-scroll {
+    overflow-y: scroll;
+    position: fixed;
+    width: 100%;
+    overscroll-behavior: contain;
+    z-index: 1000;
+}
+
+/* 
+    Keep the topbar in view when 'position: fixed' 
+    is applied to .body. Otherwise, the browser
+    treats .topbar (and all fixed descendants) as
+    fixed relative to the .body, not the viewport.
+*/
+body.lock-scroll .topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
 /* Popup Container */
 .popup-container {
     display: flex; /* hidden by default */
