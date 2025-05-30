@@ -548,6 +548,19 @@ code {
     position: relative;
     text-align: center;
     overflow-y: auto;
+    transition: padding 0.3s ease;
+}
+
+/* Keep in sync with --content-min-width */
+@media (max-width: 660px) {
+    .popup-box {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+    .popup-symbol {
+        width: 30px !important;
+        height: 30px !important;
+    }
 }
 
 .popup-box h2 {
@@ -591,15 +604,24 @@ code {
     height: 35px;
     display: block;
     margin: auto;
-    fill: #ccc;
+    fill: var(--hnn-violet);
+    background: #fff;
+    border-radius: 15px;
+    transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
+
+}
+
+body.dark-mode .popup-symbol {
+    fill: var(--light-purple);
+    background: var(--sidebar-gray);
 }
 
 .popup-symbol:hover {
-    fill: var(--hnn-violet);
+    fill: var(--icon-base);
 }
 
 body.dark-mode .popup-symbol:hover {
-    fill: var(--light-purple);
+    fill: var(--light-gray);
 }
 
 /* 
@@ -1308,7 +1330,7 @@ body.dark-mode #content .contact h3::after {
 
 :root {
     --content-max-width: 950px;
-    --content-min-width: 650px;
+    --content-min-width: 660px;
     --topbar-height: 64px;
 }
 
