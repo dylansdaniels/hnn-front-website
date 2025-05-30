@@ -498,6 +498,110 @@ code {
 # -------------------- 
 */
 
+/* Popup Container */
+.popup-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Closed Popup State */
+.popup-container {
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+/* Open Popup State */
+.popup-container.show {
+    opacity: 1; 
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+/* Popup Box */
+/*
+    Notes:
+    border-box makes it such that width/height includes content area, padding, borders
+*/
+
+.popup-box {
+    box-sizing: border-box; 
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 100px;
+    width: 95%;
+    max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
+    height: calc(100vh - 110px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.popup-box h2 {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.popup-box p {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    text-align: justify !important;
+    font-size: 20px !important;
+    padding-bottom: 50px !important;
+}
+
+.popup-box img {
+    display: block;
+    max-width: 95% !important;
+    height: auto;
+}
+
+.popup-close-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+}
+
+/* Close Button */
+.popup-close {
+    position: fixed;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.popup-symbol {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin: auto;
+    fill: #ccc;
+}
+
+.popup-symbol:hover {
+    fill: var(--hnn-violet);
+}
+
+body.dark-mode .popup-symbol:hover {
+    fill: var(--light-purple);
+}
+
 /* 
     Keep the scrollbar space reserved in the main .body
     while prevent scrolling for page content behind the 
@@ -524,106 +628,6 @@ body.lock-scroll .topbar {
     top: 0;
     width: 100%;
     z-index: 9999;
-}
-
-/* Popup Container */
-.popup-container {
-    display: flex; /* hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-
-    /* Initial state for transition */
-    opacity: 0; 
-    visibility: hidden; 
-    transition: opacity 0.3s ease, visibility 0s 0.3s; /* fade out */
-}
-
-.popup-container.show {
-    opacity: 1; 
-    visibility: visible;
-    transition: opacity 0.3s ease, visibility 0s 0s; /* fade in */
-}
-
-/* Popup Box */
-.popup-box {
-    /* border-box => width/height includes content area, padding, borders */
-    box-sizing: border-box; 
-    margin-top: 90px;
-    margin-bottom: 40px;
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px 100px;
-    width: 95%;
-    max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
-    height: calc(100vh - 110px);
-    /* height: 100%; */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
-    text-align: center;
-    overflow-y: auto; /* add scrolling */
-}
-
-.popup-box h2 {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    font-weight: 400 !important;
-}
-
-.popup-box p {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    text-align: justify !important;
-    font-size: 20px !important;
-    /* padding-left: 100px !important; */
-    /* padding-right: 100px !important; */
-    padding-bottom: 50px !important;
-}
-
-.popup-box img {
-    display: block;
-    max-width: 95% !important;
-    height: auto;
-}
-
-.popup-close-wrapper {
-    position: absolute;  /* Position it relative to the popup box */
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-}
-
-/* Close Button */
-.popup-close {
-    position: fixed;
-    background: none;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    /* font-size: 18px; */
-    /* z-index: 2001; */
-    cursor: pointer;
-}
-
-.popup-symbol {
-    width: 35px;
-    height: 35px;
-    display: block;
-    margin: auto;
-    fill: #ccc;
-}
-
-.popup-symbol:hover {
-    fill: var(--hnn-violet);
-}
-
-body.dark-mode .popup-symbol:hover {
-    fill: var(--light-purple);
 }
 
 /* 
