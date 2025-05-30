@@ -88,6 +88,7 @@ cards.forEach(card => {
         const popupId = card.getAttribute('data-popup');
         const popup = document.getElementById(popupId);
         if (popup) {
+
             popup.classList.add('show'); // show popup
 
             // Lock background scrolling without hiding the scrollbar
