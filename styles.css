@@ -560,7 +560,7 @@ body.lock-scroll .topbar {
     background: #fff;
     border-radius: 8px;
     padding: 20px 100px;
-    width: 100%;
+    width: 95%;
     max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
     height: calc(100vh - 110px);
     /* height: 100%; */
