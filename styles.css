@@ -9,6 +9,7 @@
 
 html {
     scrollbar-gutter: stable overlay;
+    overflow-y: scroll;
 }
 
 body {
@@ -632,7 +633,7 @@ body.dark-mode .popup-symbol:hover {
     Width 100% ensures the body doesn't shrink.
 */
 body.lock-scroll {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     position: fixed;
     width: 100%;
     overscroll-behavior: contain;
