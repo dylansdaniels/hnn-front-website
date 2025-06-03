@@ -601,15 +601,15 @@ code {
 }
 
 .popup-symbol {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     display: block;
     margin: auto;
     fill: var(--hnn-violet);
     background: #fff;
-    border-radius: 15px;
+    border-radius: 50%;
     transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
-
+    shape-rendering: auto;
 }
 
 body.dark-mode .popup-symbol {
