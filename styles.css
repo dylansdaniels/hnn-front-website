@@ -245,7 +245,7 @@ code {
     padding-left: 30px;
 }
 
-/* Dropdown styles */
+/* Style for "More" dropdown button */
 .dropdown {
     height: inherit;
     align-items: center;
@@ -265,15 +265,16 @@ code {
     justify-content: center;
     cursor: pointer;
     padding: 0px 10px;
-    border: 1px solid var(--light-gray);
-    border-radius: 3px;
-    transition: box-shadow 0.15s ease;
+    border: 2px solid var(--icon-base);
+    border-radius: 15px;
+    /* transition: box-shadow 0.3s ease; */
+    transition: box-shadow;
 }
 
 .dropdown-button:hover {
     /* border-color: var(--sidebar-purple); */
-    border: 1px solid var(--sidebar-purple);
-    box-shadow: 0 0 0 2px var(--sidebar-purple);
+    border: 2px solid var(--sidebar-purple);
+    box-shadow: 0 0 0 1px var(--sidebar-purple);
     
 }
 
@@ -605,7 +606,7 @@ code {
     height: 42px;
     display: block;
     margin: auto;
-    color: var(--hnn-violet);
+    color: var(--light-purple);
     --fill-color: #fff;
     border-radius: 50%;
     transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
