@@ -601,28 +601,28 @@ code {
 }
 
 .popup-symbol {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     display: block;
     margin: auto;
-    fill: var(--hnn-violet);
-    background: #fff;
+    color: var(--hnn-violet);
+    --fill-color: #fff;
     border-radius: 50%;
     transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
     shape-rendering: auto;
 }
 
 body.dark-mode .popup-symbol {
-    fill: var(--light-purple);
-    background: var(--sidebar-gray);
+    color: var(--light-purple);
+    --fill-color: var(--sidebar-gray);
 }
 
 .popup-symbol:hover {
-    fill: var(--icon-base);
+    color: var(--icon-base);
 }
 
 body.dark-mode .popup-symbol:hover {
-    fill: var(--light-gray);
+    color: var(--light-gray);
 }
 
 /* 
