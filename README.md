@@ -1,7 +1,7 @@
 # hnn-front-website
 Code for the new "front"-facing HNN website
 
-Current GitHub Pages rendered website can be found here: <https://github-at-brown.github.io/hnn-front-website/homepage.html>.
+Current GitHub Pages rendered website can be found here: <https://github-at-brown.github.io/hnn-front-website>.
 
 ### Running scripts:
 
