@@ -7,7 +7,7 @@ topbar.outerHTML = `
                     </div>
                     <div class="links">
 
-                        <a href="homepage.html" class="home-link">
+                        <a href="index.html" class="home-link">
                             <div class="home-icon-container">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ topbar.outerHTML = `
                     </div>
                     <div id="mobile-menu" class="mobile-menu">
                         <div class="links">
-                            <a href="homepage.html" class="home-link">
+                            <a href="index.html" class="home-link">
                                 Home
                             </a>
                             <a href="https://jonescompneurolab.github.io/hnn-core/stable/install.html">
