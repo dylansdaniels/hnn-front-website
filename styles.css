@@ -947,10 +947,22 @@ body.dark-mode .dropdown-content a:hover {
    ------------------------------
 */ 
 
+#logo-subtitle img {
+    background-color: transparent;
+    outline: 3px solid transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+}
+
 body.dark-mode #logo-subtitle img {
-    background-color:#fff;
-    border: 3px solid var(--light-gray);
-    border-radius: 6px
+    /* background-color:#fff; */
+    background-color: var(--sidebar-gray);
+    /* border: 3px solid var(--light-gray); */
+    outline: 3px solid var(--light-gray);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
 }
 
 body.dark-mode .logo-container {
@@ -1415,11 +1427,14 @@ body.dark-mode #content .contact h3::after {
 }
 
 .overlay-grid {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  pointer-events: none; /* pass clicks through */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: 25% 26% 25% 24%;
+    pointer-events: none; /* pass clicks through */
 }
 
 /* animated border */
@@ -1430,41 +1445,9 @@ body.dark-mode #content .contact h3::after {
     --angle: 0deg;
     position: relative;
     padding: 1em;
-    border-radius: 5px;
+    border-radius: 3px;
     z-index: 0;
 }
-/* 
-Version 1
-Notes: Functional and simple, but there is a stutter in the animation
-       when the loop finishes and starts anew
-
-.animated-gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: var(--border-width);
-    background: linear-gradient(90deg, hsl(234, 100%, 50%), hsl(324, 100%, 50%), hsl(234, 100%, 50%));
-    background-size: 300% 100%;
-    background-repeat: no-repeat;
-    animation: border-gradient-rotate 5s linear infinite;
-    border-radius: inherit;
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-    pointer-events: none;
-}
-
-@keyframes border-gradient-rotate {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-} */
 
 .animated-gradient-border::before {
     content: '';
@@ -1493,7 +1476,6 @@ Notes: Functional and simple, but there is a stutter in the animation
     -webkit-mask-composite: xor;
     mask-composite: exclude;
 }
-
 
 @keyframes rotate-border {
     to {
