@@ -1402,3 +1402,107 @@ body.dark-mode #content .contact h3::after {
 .external-icon::before {
     content: var(--pst-icon-external-link);
 }
+
+
+/* overlay container for homepage image */
+
+.image-container {
+    position: relative;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.overlay-grid {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  pointer-events: none; /* pass clicks through */
+}
+
+/* animated border */
+/* for reference, see: https://ibelick.com/blog/create-animated-gradient-borders-with-css */
+
+.animated-gradient-border {
+    --border-width: 5px;
+    --angle: 0deg;
+    position: relative;
+    padding: 1em;
+    border-radius: 5px;
+    z-index: 0;
+}
+/* 
+Version 1
+Notes: Functional and simple, but there is a stutter in the animation
+       when the loop finishes and starts anew
+
+.animated-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: var(--border-width);
+    background: linear-gradient(90deg, hsl(234, 100%, 50%), hsl(324, 100%, 50%), hsl(234, 100%, 50%));
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    animation: border-gradient-rotate 5s linear infinite;
+    border-radius: inherit;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes border-gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+} */
+
+.animated-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: var(--border-width);
+    border-radius: inherit;
+    background: 
+        linear-gradient(var(--angle), 
+        /* starting colors */
+        /* hsl(234, 100%, 50%), */
+        hsla(234, 100%, 65%, 0.839),
+
+        /* finishing color */
+        hsl(324, 100%, 50%)) 
+        /* var(--hnn-violet)) */
+        border-box;
+    animation: rotate-border 10s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+
+    /* Ensures only the border shows */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+
+@keyframes rotate-border {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
