@@ -406,4 +406,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ----------------------------------------
+// swap homepage image url for dark mode
+// ----------------------------------------
+// get the image html tag by id
+const logoImg = document.getElementById('logo-img');
 
+// check for dark mode and swap filename in url
+function updateImageForTheme() {
+    const isDark = document.body.classList.contains('dark-mode');
+    logoImg.src = isDark
+        ? 'https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/frontpage/content-images/bridging-scales-colored-dm.png'
+        : 'https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/frontpage/content-images/bridging-scales-colored.png';
+}
+
+// run function on page load
+updateImageForTheme();
+
+// on function on theme change
+const observer = new MutationObserver(updateImageForTheme);
+observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
