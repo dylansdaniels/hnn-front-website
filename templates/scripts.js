@@ -426,3 +426,142 @@ updateImageForTheme();
 // on function on theme change
 const observer = new MutationObserver(updateImageForTheme);
 observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+// ----------------------------------------
+// smooth scaling below content-min-width
+// ----------------------------------------
+function getContentMinWidth() {
+    const minWidth = getComputedStyle(document.documentElement).getPropertyValue('--content-min-width');
+    return parseFloat(minWidth);
+    }
+
+function getPageMinWidth() {
+    const pageMinWidth = getComputedStyle(document.documentElement).getPropertyValue('--page-min-width');
+    return parseFloat(pageMinWidth);
+}
+
+function applySmoothScale() {
+    const minWidth = getContentMinWidth();
+    const pageMinWidth = getPageMinWidth();
+    const content = document.getElementById('content-wrapper');
+    const html = document.documentElement;
+    const viewportWidth = html.clientWidth;
+
+    // fallback minimum width in pixels
+    const effectiveWidth = Math.max(viewportWidth, pageMinWidth);
+
+    if (viewportWidth < minWidth) {
+        const scale = effectiveWidth / minWidth;
+        content.style.transform = `scale(${scale})`;
+        content.style.transformOrigin = 'top center';
+        content.style.width = `${minWidth}px`;
+    } else {
+        content.style.transform = '';
+        content.style.width = '';
+    }
+    }
+
+window.addEventListener('resize', applySmoothScale);
+window.addEventListener('DOMContentLoaded', applySmoothScale);
+
+// remove social icons under --page-min-width
+(function () {
+  const socialIcons = document.querySelector('.social-icons');
+
+  function getPageMinWidth() {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const minWidthValue = rootStyles.getPropertyValue('--page-min-width') || '360px';
+    return parseFloat(minWidthValue);
+  }
+
+  function updateSocialIconsVisibility() {
+    if (!socialIcons) return;
+
+    const viewportWidth = document.documentElement.clientWidth;
+    const minWidth = getPageMinWidth();
+
+    if (viewportWidth < minWidth) {
+      socialIcons.style.display = 'none';
+    } else {
+      socialIcons.style.display = '';
+    }
+  }
+
+  window.addEventListener('resize', updateSocialIconsVisibility);
+  window.addEventListener('DOMContentLoaded', updateSocialIconsVisibility);
+})();
+
+// fix content height
+// ------------------   
+function fixMainHeightToEndSpacer() {
+  const main = document.getElementById('main');
+  const endSpacer = document.getElementById('end-spacer');
+  if (!main || !endSpacer) return;
+
+  const spacerRect = endSpacer.getBoundingClientRect();
+  const bottomPosition = spacerRect.bottom + window.pageYOffset;
+
+  const viewportHeight = window.innerHeight;
+  const newHeight = Math.max(bottomPosition, viewportHeight);
+
+  main.style.height = `${newHeight}px`;
+  main.style.overflow = 'hidden';
+}
+
+// Run after full page load (ensures images/fonts are rendered)
+window.addEventListener('load', fixMainHeightToEndSpacer);
+
+// Run on window resize
+window.addEventListener('resize', fixMainHeightToEndSpacer);
+
+// Observe DOM changes inside #main
+const main = document.getElementById('main');
+if (main) {
+  const observer = new MutationObserver(() => {
+    fixMainHeightToEndSpacer();
+  });
+
+  observer.observe(main, {
+    attributes: true,
+    childList: true,
+    subtree: true
+  });
+}
+
+// fix on page reload
+// -------------------
+function ensureMainHeightFix(attempts = 5, delay = 500) {
+  const main = document.getElementById('main');
+  const endSpacer = document.getElementById('end-spacer');
+  if (!main || !endSpacer) return;
+
+  function tryFix(attempt) {
+    // Force reflow
+    document.body.offsetHeight;
+
+    fixMainHeightToEndSpacer();
+
+    const spacerRect = endSpacer.getBoundingClientRect();
+    const bottomPosition = spacerRect.bottom + window.pageYOffset;
+    const viewportHeight = window.innerHeight;
+    const expectedHeight = Math.max(bottomPosition, viewportHeight);
+    const actualHeight = parseFloat(getComputedStyle(main).height);
+
+    const difference = Math.abs(expectedHeight - actualHeight);
+
+    if (difference > 2 && attempt < attempts) {
+      setTimeout(() => tryFix(attempt + 1), delay);
+    }
+  }
+
+  // Start attempts after a small delay
+  setTimeout(() => tryFix(1), delay);
+}
+
+window.addEventListener('load', () => {
+  ensureMainHeightFix();
+});
+
+// testing
+// ----------
+

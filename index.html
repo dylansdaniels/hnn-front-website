@@ -45,9 +45,8 @@
                         <p>
                             An open-source software for developing and testing hypotheses on the cellular- and circuit-level mechanisms of electro- and magneto-encephalography (EEG/MEG) signals.
                         </p>
-
                         <div class="image-container">
-                            <img id="logo-img" src="bridging-scales-colored.png" style="width: 100%; display: block;" />
+                            <img id="logo-img" style="display:block;" src="bridging-scales-colored.png" />
                             <div class="image-border"></div>
                             <div class="overlay-grid">
                                 <div></div>
@@ -56,7 +55,6 @@
                                 <div></div>
                             </div>
                         </div>
-
                         <p>
                             HNN uniquely translates commonly measured human EEG/MEG signals to the wealth of knowledge obtainable in animal studies.
                         </p>
@@ -81,12 +79,10 @@
                             <div class="overlay">
                                 <h1>
                                     The Biophysical Challenge
-                                    <h1>
-                                        <p>
-                                            Electro- and magneto-encephalography (EEG/MEG) are among the most powerful technologies to non-invasively record human brain activity with millisecond resolution. They provide reliable markers of healthy brain function and disease states. A major limitation is that it is often difficult to connect the macroscopic scale-measured signals to the underlying cellular and circuit-level neural generators. This difficulty limits the translation of EEG/MEG studies into novel principles of information processing, or into new treatment modalities for neural pathologies.
-                                        </p>
-                                    </h1>
                                 </h1>
+                                <p>
+                                    Electro- and magneto-encephalography (EEG/MEG) are among the most powerful technologies to non-invasively record human brain activity with millisecond resolution. They provide reliable markers of healthy brain function and disease states. A major limitation is that it is often difficult to connect the macroscopic scale-measured signals to the underlying cellular and circuit-level neural generators. This difficulty limits the translation of EEG/MEG studies into novel principles of information processing, or into new treatment modalities for neural pathologies.
+                                </p>
                             </div>
                         </div>
                         <div class="card" data-popup="popup3">
@@ -107,12 +103,10 @@
                             <div class="overlay">
                                 <h1>
                                     Multi-Scale Visualization
-                                    <h1>
-                                        <p>
-                                            HNN provides easy-to-use interfaces to a wide range of visualization and plotting capabilities across different dimensions and scales of your simulations. At the macro-scale, we provide visualizations for simulated and experimental data such as the current dipoles that produce EEG and MEG signals. At the meso-scale [TODO double check with Steph/etc.], we enable simulation and plotting of laminar LFP and CSD output, including the relative position of electrodes with respect to cells.
-                                        </p>
-                                    </h1>
                                 </h1>
+                                <p>
+                                    HNN provides easy-to-use interfaces to a wide range of visualization and plotting capabilities across different dimensions and scales of your simulations. At the macro-scale, we provide visualizations for simulated and experimental data such as the current dipoles that produce EEG and MEG signals. At the meso-scale [TODO double check with Steph/etc.], we enable simulation and plotting of laminar LFP and CSD output, including the relative position of electrodes with respect to cells.
+                                </p>
                             </div>
                         </div>
                         <div class="card" data-popup="popup5">
@@ -121,12 +115,10 @@
                             <div class="overlay">
                                 <h1>
                                     Fitting to Data
-                                    <h1>
-                                        <p>
-                                          HNN provides two ways to fit its pre-tuned neural models to your experimental data: Hand-Tuning and Optimization.
-                                        </p>
-                                    </h1>
                                 </h1>
+                                <p>
+                                    HNN provides two ways to fit its pre-tuned neural models to your experimental data: Hand-Tuning and Optimization.
+                                </p>
                             </div>
                         </div>
                         <div class="card" data-popup="popup6">
@@ -174,188 +166,189 @@
                             </div>
                         </div>
                     </div>
-
-                    <svg style="display: none;">
-                        <symbol id="popup-symbol" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="9" 
-                                fill="var(--fill-color, transparent)" 
-                                stroke="var(--stroke-color, currentColor)" 
-                                stroke-width="2" />
-                            <path d="M9 9L15 15M15 9L9 15" 
-                                stroke="var(--stroke-color, currentColor)" 
-                                stroke-width="2" 
-                                stroke-linecap="round" />
-                        </symbol>
-                    </svg>
-
-                    <div class="popup-container" id="popup1">
-                        <div class="popup-box">
-                            <div class="popup-close-wrapper">
-                                <button class="popup-close">
-                                    <svg class="popup-symbol" viewBox="0 0 512 512">
-                                        <use href="#popup-symbol"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2>
-                                Getting Started
-                            </h2>
-                            <p>
-                                The Human Neocortical Neurosolver (HNN) is an open-source neural modeling tool in Python designed to help researchers/clinicians interpret human brain imaging data. The core of HNN is a large-scale and biophysically-detailed template model of a neocortical column model that simulates primary current dipoles; i.e., the neural sources of the sensor-level EEG/MEG signal.
-                                <br/>
-                                <br/>
-                                <img alt="Current sources" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/current-source.png"/>
-                                <br/>
-                                HNN is designed as a starting point for developing and testing predictions on the detailed neural mechanisms contributing to EEG/MEG signals based on the known biophysics of their generation. The multi-scale simulation possible with HNN (layer and cell-specific spiking, LFP/CSD, etc.) facilitates testing of model-derived predictions across multiple recording scales and species.
-                                <br/>
-                                <br/>
-                                HNN is designed with workflows to activate the neocortical model with activity from exogenous thalamic and intracortical sources. We provide detailed tutorials on how to study the neural origin of source-localized event-related potentials and low-frequency brain rhythms. Following our workflows, users can quickly develop an intuition of how cells and circuits contribute to macroscale signal generation.
-                                <br/>
-                                <br/>
-                                See our
-                                <a href="https://jonescompneurolab.github.io/textbook/content/preface.html">HNN Textbook</a>
-                                to get started with HNN.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="popup-container" id="popup2">
-                        <div class="popup-box">
-                            <div class="popup-close-wrapper">
-                                <button class="popup-close">
-                                    <svg class="popup-symbol" viewBox="0 0 512 512">
-                                        <use href="#popup-symbol"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2>
-                                The Biophysical Challenge
-                            </h2>
-                            <p>
-                                Electro- and magneto-encephalography (EEG/MEG) are among the most powerful technologies to non-invasively record human brain activity with millisecond resolution. They provide reliable markers of healthy brain function and disease states. A major limitation is that it is often difficult to connect the macroscopic scale-measured signals to the underlying cellular and circuit-level neural generators. This difficulty limits the translation of EEG/MEG studies into novel principles of information processing, or into new treatment modalities for neural pathologies.
-                                <br/>
-                                <br/>
-                                <img alt="Bridging scales" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/bridging_scales.png"/>
-                                <br/>
-                                HNN is a user-friendly software tool that provides a novel solution to this challenge by giving researchers and clinicians the ability to test and develop hypotheses on the circuit mechanism underlying their EEG/MEG data. The foundation of HNN is a preconstructed biophysically-principled neocortical column model that simulates the electrical activity of the neocortical cells and circuits that generate the primary electrical currents underlying EEG/MEG recordings.
-                                <br/>
-                                <br/>
-                                To learn more, see the
-                                <a href="">Biophysical Modeling</a>
-                                section of our HNN Textbook
-                            </p>
-                        </div>
-                    </div>
-                    <div class="popup-container" id="popup3">
-                        <div class="popup-box">
-                            <div class="popup-close-wrapper">
-                                <button class="popup-close">
-                                    <svg class="popup-symbol" viewBox="0 0 512 512">
-                                        <use href="#popup-symbol"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2>
-                                ERPs and Rhythms
-                            </h2>
-                            <p>
-                                Our
-                                <a href="https://jonescompneurolab.github.io/textbook/content/preface.html">HNN Textbook</a>
-                                is designed to teach users how to begin studying the origins of ERP and brain rhythms based on our previously-published studies. We provide data, initial parameter and network configurations, and workflows to teach users how to develop and test hypotheses on the neural origin of the most commonly recorded EEG/MEG signals, including event-related potentials (ERPs), Gamma Rhythms (30-80Hz), and low-frequency rhythms including Alpha (7-14Hz) and Beta Rhythms (15-29Hz).
-                                <br/>
-                                <br/>
-                                <img alt="Simulating Alpha/Beta" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/AlphaAndBeta_Spect_plotonly.png"/>
-                                <br/>
-                                Our simulation examples follow a step-by-step process that serves as a guide on how you can use HNN to develop and test your own hypotheses on the biophysical origins of your recorded signals. You can find our
-                                <a href="https://jonescompneurolab.github.io/textbook/content/05_erps/hnn_core.html">guide to simulating ERPs here</a>
-                                or our
-                                <a href="https://jonescompneurolab.github.io/textbook/content/06_alpha_beta/gui.html">guide to simulating Alpha/Beta here</a>.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="popup-container" id="popup4">
-                        <div class="popup-box">
-                            <div class="popup-close-wrapper">
-                                <button class="popup-close">
-                                    <svg class="popup-symbol" viewBox="0 0 512 512">
-                                        <use href="#popup-symbol"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2>
-                                Multi-Scale Visualization
-                            </h2>
-                            <p>
-                              HNN provides easy-to-use interfaces to a wide range of visualization and plotting capabilities across different dimensions and scales of your simulations. At the macro scale, we provide visualizations for simulated and experimental data such as the current dipoles that produce EEG and MEG signals. At the meso scale, we enable simulation and plotting of laminar LFP and CSD output, including the relative position of electrodes with respect to cells. At the micro scale (i.e., on the level of individual cells) we can plot spike rasters, compartmental voltage traces, intracellular state variables like calcium, and many different visualizations of synaptic network connectivity. We provide
-                                <a href="https://jonescompneurolab.github.io/hnn-core/stable/auto_examples/index.html">many tutorials on how to use and visualize in HNN on our code website here</a>.
-                            </p>
-                            <img alt="Visualizations across multiple scales" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/multi-scale-vis.png"/>
-                        </div>
-                    </div>
-                    <div class="popup-container" id="popup5">
-                        <div class="popup-box">
-                            <div class="popup-close-wrapper">
-                                <button class="popup-close">
-                                    <svg class="popup-symbol" viewBox="0 0 512 512">
-                                        <use href="#popup-symbol"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2>
-                                Fitting to Data
-                            </h2>
-                            <p>
-                              HNN provides two ways to fit its pre-tuned neural models to your experimental data:
-                              <br/>
-                              <br/>
-                              <b>Hand-tuning</b>: With both the GUI and API, HNN provides all the tools needed for changing parameters to produce new simulations that better match the user's experimental data. HNN is especially powerful for understanding how external drives to the network impact the network and its outputs, including the current dipole that comprises MEG/EEG signals. Manually exploring the simulated parameter space helps users to either test or generate hypotheses tied to specific biological processes, such as statistical changes to inputs, E/I balance, between-layer communication, and much more.
-                              <br/>
-                              <br/>
-                              <b>Optimization</b>: Given user-provided constraints, HNN can also minimize the root mean square error (RMSE) between a user-provided experimental dipole signal and simulated dipole signals. Understanding which changes lead to a better match between simulated and experimental data will guide users to novel hypotheses of how the underlying biology works. HNN currently provides support for Bayesian and COBYLA optimization algorithms. See
-                              <a href="https://jonescompneurolab.github.io/hnn-core/stable/auto_examples/howto/optimize_evoked.html#sphx-glr-auto-examples-howto-optimize-evoked-py">our Optimization tutorials here</a>
-                              for how to get started using it.
-                              <br/>
-                              <br/>
-                              <img alt="Optimization examples" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/fitting-to-data.png"/>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="popup-container" id="popup6">
-                        <div class="popup-box">
-                            <div class="popup-close-wrapper">
-                                <button class="popup-close">
-                                    <svg class="popup-symbol" viewBox="0 0 512 512">
-                                        <use href="#popup-symbol"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h2>
-                                Model Validation
-                            </h2>
-                            <p>
-                              HNN's foundational neocortical column model, referred to as the HNN Template Model (shown below), is a tuned implementation of the computational model in
-                              <a href="https://doi.org/10.1523%2FJNEUROSCI.0482-07.2007">(Jones et al. 2007)</a>.
-                              This model was developed based on canonical principles of neocortical circuitry and contains the minimal circuit elements necessary for generating primary current dipoles and connecting dipole output to layer- and cell-specific neocortical activity.
-                              <br/>
-                              <br/>
-                              <img alt="HNN Template model" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/frontpage/content-images/hnn-template-model.png"/>
-                              <br/>
-                              Building HNN allowed us to test if the cell and network elements thought to be the primary generators of ERPs, alpha rhythms, beta rhythms, gamma rhythms, and other activity could produce macro-scale current dipole signals that were in agreement with our recorded data. While the literature guided us to a starting point that constrained the investigation, the exact parameters to use were unknown. By directly comparing the current dipole output of the model to source-localized experimental data, we were able to titrate parameters (both through hand tuning and algorithmic parameter estimation) to produce a close fit to the source waveform (i.e., using small root mean squared error (RMSE)). Once a close fit to the current dipole waveform was established, the model provided a number of testable predictions on the underlying cell and circuit activity; e.g. exogenous input timing and strength, cell spiking activity, LFP/CSD, etc.
-                              <br/>
-                              <br/>
-                              For more detail on how our Template Model was validated, see the
-                              <a href="https://jonescompneurolab.github.io/textbook/content/03_model_assumptions/cortical_column_structure.html">Model Assumptions</a>
-                              section of our HNN Textbook. For publications that have used our model, see
-                              <a href="publications.html">our Publications page</a>.
-
-                            </p>
-                        </div>
-                    </div>
-                    <!-- end popup containers -->
-                    <div style="height: 150px;"></div>
+                    <div id="end-spacer" style="height: 150px;"></div>
                 </div>
                 <!-- close content -->
             </div>
             <!-- close content wrapper -->
+
+            <!-- start of popup card contents -->
+            <svg style="display: none;">
+                <symbol id="popup-symbol" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" 
+                        fill="var(--fill-color, transparent)" 
+                        stroke="var(--stroke-color, currentColor)" 
+                        stroke-width="2" />
+                    <path d="M9 9L15 15M15 9L9 15" 
+                        stroke="var(--stroke-color, currentColor)" 
+                        stroke-width="2" 
+                        stroke-linecap="round" />
+                </symbol>
+            </svg>
+
+            <div class="popup-container" id="popup1">
+                <div class="popup-box">
+                    <div class="popup-close-wrapper">
+                        <button class="popup-close">
+                            <svg class="popup-symbol" viewBox="0 0 512 512">
+                                <use href="#popup-symbol"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <h2>
+                        Getting Started
+                    </h2>
+                    <p>
+                        The Human Neocortical Neurosolver (HNN) is an open-source neural modeling tool in Python designed to help researchers/clinicians interpret human brain imaging data. The core of HNN is a large-scale and biophysically-detailed template model of a neocortical column model that simulates primary current dipoles; i.e., the neural sources of the sensor-level EEG/MEG signal.
+                        <br/>
+                        <br/>
+                        <img alt="Current sources" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/current-source.png"/>
+                        <br/>
+                        HNN is designed as a starting point for developing and testing predictions on the detailed neural mechanisms contributing to EEG/MEG signals based on the known biophysics of their generation. The multi-scale simulation possible with HNN (layer and cell-specific spiking, LFP/CSD, etc.) facilitates testing of model-derived predictions across multiple recording scales and species.
+                        <br/>
+                        <br/>
+                        HNN is designed with workflows to activate the neocortical model with activity from exogenous thalamic and intracortical sources. We provide detailed tutorials on how to study the neural origin of source-localized event-related potentials and low-frequency brain rhythms. Following our workflows, users can quickly develop an intuition of how cells and circuits contribute to macroscale signal generation.
+                        <br/>
+                        <br/>
+                        See our
+                        <a href="https://jonescompneurolab.github.io/textbook/content/preface.html">HNN Textbook</a>
+                        to get started with HNN.
+                    </p>
+                </div>
+            </div>
+            <div class="popup-container" id="popup2">
+                <div class="popup-box">
+                    <div class="popup-close-wrapper">
+                        <button class="popup-close">
+                            <svg class="popup-symbol" viewBox="0 0 512 512">
+                                <use href="#popup-symbol"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <h2>
+                        The Biophysical Challenge
+                    </h2>
+                    <p>
+                        Electro- and magneto-encephalography (EEG/MEG) are among the most powerful technologies to non-invasively record human brain activity with millisecond resolution. They provide reliable markers of healthy brain function and disease states. A major limitation is that it is often difficult to connect the macroscopic scale-measured signals to the underlying cellular and circuit-level neural generators. This difficulty limits the translation of EEG/MEG studies into novel principles of information processing, or into new treatment modalities for neural pathologies.
+                        <br/>
+                        <br/>
+                        <img alt="Bridging scales" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/bridging_scales.png"/>
+                        <br/>
+                        HNN is a user-friendly software tool that provides a novel solution to this challenge by giving researchers and clinicians the ability to test and develop hypotheses on the circuit mechanism underlying their EEG/MEG data. The foundation of HNN is a preconstructed biophysically-principled neocortical column model that simulates the electrical activity of the neocortical cells and circuits that generate the primary electrical currents underlying EEG/MEG recordings.
+                        <br/>
+                        <br/>
+                        To learn more, see the
+                        <a href="">Biophysical Modeling</a>
+                        section of our HNN Textbook
+                    </p>
+                </div>
+            </div>
+            <div class="popup-container" id="popup3">
+                <div class="popup-box">
+                    <div class="popup-close-wrapper">
+                        <button class="popup-close">
+                            <svg class="popup-symbol" viewBox="0 0 512 512">
+                                <use href="#popup-symbol"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <h2>
+                        ERPs and Rhythms
+                    </h2>
+                    <p>
+                        Our
+                        <a href="https://jonescompneurolab.github.io/textbook/content/preface.html">HNN Textbook</a>
+                        is designed to teach users how to begin studying the origins of ERP and brain rhythms based on our previously-published studies. We provide data, initial parameter and network configurations, and workflows to teach users how to develop and test hypotheses on the neural origin of the most commonly recorded EEG/MEG signals, including event-related potentials (ERPs), Gamma Rhythms (30-80Hz), and low-frequency rhythms including Alpha (7-14Hz) and Beta Rhythms (15-29Hz).
+                        <br/>
+                        <br/>
+                        <img alt="Simulating Alpha/Beta" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/AlphaAndBeta_Spect_plotonly.png"/>
+                        <br/>
+                        Our simulation examples follow a step-by-step process that serves as a guide on how you can use HNN to develop and test your own hypotheses on the biophysical origins of your recorded signals. You can find our
+                        <a href="https://jonescompneurolab.github.io/textbook/content/05_erps/hnn_core.html">guide to simulating ERPs here</a>
+                        or our
+                        <a href="https://jonescompneurolab.github.io/textbook/content/06_alpha_beta/gui.html">guide to simulating Alpha/Beta here</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="popup-container" id="popup4">
+                <div class="popup-box">
+                    <div class="popup-close-wrapper">
+                        <button class="popup-close">
+                            <svg class="popup-symbol" viewBox="0 0 512 512">
+                                <use href="#popup-symbol"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <h2>
+                        Multi-Scale Visualization
+                    </h2>
+                    <p>
+                        HNN provides easy-to-use interfaces to a wide range of visualization and plotting capabilities across different dimensions and scales of your simulations. At the macro scale, we provide visualizations for simulated and experimental data such as the current dipoles that produce EEG and MEG signals. At the meso scale, we enable simulation and plotting of laminar LFP and CSD output, including the relative position of electrodes with respect to cells. At the micro scale (i.e., on the level of individual cells) we can plot spike rasters, compartmental voltage traces, intracellular state variables like calcium, and many different visualizations of synaptic network connectivity. We provide
+                        <a href="https://jonescompneurolab.github.io/hnn-core/stable/auto_examples/index.html">many tutorials on how to use and visualize in HNN on our code website here</a>.
+                    </p>
+                    <img alt="Visualizations across multiple scales" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/multi-scale-vis.png"/>
+                </div>
+            </div>
+            <div class="popup-container" id="popup5">
+                <div class="popup-box">
+                    <div class="popup-close-wrapper">
+                        <button class="popup-close">
+                            <svg class="popup-symbol" viewBox="0 0 512 512">
+                                <use href="#popup-symbol"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <h2>
+                        Fitting to Data
+                    </h2>
+                    <p>
+                        HNN provides two ways to fit its pre-tuned neural models to your experimental data:
+                        <br/>
+                        <br/>
+                        <b>Hand-tuning</b>: With both the GUI and API, HNN provides all the tools needed for changing parameters to produce new simulations that better match the user's experimental data. HNN is especially powerful for understanding how external drives to the network impact the network and its outputs, including the current dipole that comprises MEG/EEG signals. Manually exploring the simulated parameter space helps users to either test or generate hypotheses tied to specific biological processes, such as statistical changes to inputs, E/I balance, between-layer communication, and much more.
+                        <br/>
+                        <br/>
+                        <b>Optimization</b>: Given user-provided constraints, HNN can also minimize the root mean square error (RMSE) between a user-provided experimental dipole signal and simulated dipole signals. Understanding which changes lead to a better match between simulated and experimental data will guide users to novel hypotheses of how the underlying biology works. HNN currently provides support for Bayesian and COBYLA optimization algorithms. See
+                        <a href="https://jonescompneurolab.github.io/hnn-core/stable/auto_examples/howto/optimize_evoked.html#sphx-glr-auto-examples-howto-optimize-evoked-py">our Optimization tutorials here</a>
+                        for how to get started using it.
+                        <br/>
+                        <br/>
+                        <img alt="Optimization examples" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/master/images/frontpage/content-images/fitting-to-data.png"/>
+                    </p>
+                </div>
+            </div>
+            <div class="popup-container" id="popup6">
+                <div class="popup-box">
+                    <div class="popup-close-wrapper">
+                        <button class="popup-close">
+                            <svg class="popup-symbol" viewBox="0 0 512 512">
+                                <use href="#popup-symbol"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <h2>
+                        Model Validation
+                    </h2>
+                    <p>
+                        HNN's foundational neocortical column model, referred to as the HNN Template Model (shown below), is a tuned implementation of the computational model in
+                        <a href="https://doi.org/10.1523%2FJNEUROSCI.0482-07.2007">(Jones et al. 2007)</a>.
+                        This model was developed based on canonical principles of neocortical circuitry and contains the minimal circuit elements necessary for generating primary current dipoles and connecting dipole output to layer- and cell-specific neocortical activity.
+                        <br/>
+                        <br/>
+                        <img alt="HNN Template model" src="https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/frontpage/content-images/hnn-template-model.png"/>
+                        <br/>
+                        Building HNN allowed us to test if the cell and network elements thought to be the primary generators of ERPs, alpha rhythms, beta rhythms, gamma rhythms, and other activity could produce macro-scale current dipole signals that were in agreement with our recorded data. While the literature guided us to a starting point that constrained the investigation, the exact parameters to use were unknown. By directly comparing the current dipole output of the model to source-localized experimental data, we were able to titrate parameters (both through hand tuning and algorithmic parameter estimation) to produce a close fit to the source waveform (i.e., using small root mean squared error (RMSE)). Once a close fit to the current dipole waveform was established, the model provided a number of testable predictions on the underlying cell and circuit activity; e.g. exogenous input timing and strength, cell spiking activity, LFP/CSD, etc.
+                        <br/>
+                        <br/>
+                        For more detail on how our Template Model was validated, see the
+                        <a href="https://jonescompneurolab.github.io/textbook/content/03_model_assumptions/cortical_column_structure.html">Model Assumptions</a>
+                        section of our HNN Textbook. For publications that have used our model, see
+                        <a href="publications.html">our Publications page</a>.
+
+                    </p>
+                </div>
+            </div>
+            <!-- end popup card contents -->
         </div>
         <!-- close main -->
     </body>

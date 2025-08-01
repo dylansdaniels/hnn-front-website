@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+/* #main {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+#main > * {
+  outline: 1px dashed red;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+#main {
+  border: 2px solid blue;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body::after {
+  content: "END";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 5px;
+  z-index: 9999;
+} 
+  
+* {
+  outline: 1px solid red;
+}
+*/
+/* 
+#main {
+  border: 2px solid blue;
+  height: 100vh;
+  overflow: hidden;
+} */
 
 /* 
 # --------------------
@@ -17,10 +54,10 @@ body {
     font-family: 'Merriweather', Georgia, serif;
     color: #333;
     line-height: 1.6;
-    transition: margin-left .5s;
+    /* transition: margin-left .5s; */
     margin: 0px;
     padding: 0px;
-    min-width: var(--content-min-width);
+    /* min-width: var(--content-min-width); */
 }
 
 h1, h2, h3, h4 {
@@ -41,7 +78,8 @@ a:hover {
   }
 
 #main {
-    transition: margin-left 0.5s;
+    min-width: var(--page-min-width);
+    /* transition: margin-left 0.5s; */
     padding: 0px;
     margin: 0px;
     display: flex;
@@ -83,6 +121,7 @@ a:hover {
     box-sizing: border-box;
     /* margin: 0 auto; */
     margin-top: var(--topbar-height);
+    transition: transform 0.3s ease;
 }
 
 #content {
@@ -152,7 +191,7 @@ code {
     align-items: center;
     padding: 0 0px;
     width: 100%;
-    min-width: var(--content-min-width);
+    min-width: var(--page-min-width);
     flex-direction: column;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
     position: fixed;
@@ -167,7 +206,7 @@ code {
     padding: 0 20px;
     width: 100%;
     max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
-    min-width: var(--content-min-width);
+    /* min-width: var(--content-min-width); */
     box-sizing: border-box;
 }
 
@@ -350,6 +389,12 @@ code {
     margin-left: 10px
 }
 
+@media (max-width: var(--page-min-width)) {
+    .social-icons {
+        visibility: hidden;
+    }
+}
+
 .social-icons a {
     display: flex;
     align-items: center;
@@ -502,7 +547,7 @@ code {
 
 /* Popup Container */
 .popup-container {
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -510,6 +555,16 @@ code {
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     z-index: 1000;
+}
+
+.popup-container.show {
+    display: block; 
+}
+
+@media (max-width: 359px) {
+  .popup-container {
+    position: absolute !important;
+  }
 }
 
 /* Closed Popup State */
@@ -533,7 +588,14 @@ code {
 */
 
 .popup-box {
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    position: relative;
+    padding: 20px 100px;
+    width: 95%;
+    height: calc(100vh - 110px);
+    min-width: var(--page-min-width);
+    max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     margin-top: 80px;
     margin-bottom: 40px;
     margin-left: auto;
@@ -542,12 +604,6 @@ code {
     right: 0;
     background: #fff;
     border-radius: 8px;
-    padding: 20px 100px;
-    width: 95%;
-    max-width: calc(var(--content-max-width) + (var(--content-max-width) * 0.2));
-    height: calc(100vh - 110px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
     text-align: center;
     overflow-y: auto;
     transition: padding 0.3s ease;
@@ -565,16 +621,22 @@ code {
     }
 }
 
-.popup-box h2 {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    font-weight: 400 !important;
-}
-
 .popup-box p {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     text-align: justify !important;
     font-size: 20px !important;
     padding-bottom: 50px !important;
+    color: #333;
+    line-height: 1.6;
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.popup-box h2 {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 1.75em !important;
 }
 
 .popup-box img {
@@ -639,6 +701,8 @@ body.lock-scroll {
     width: 100%;
     overscroll-behavior: contain;
     z-index: 1000;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
 /* 
@@ -1346,6 +1410,7 @@ body.dark-mode #content .contact h3::after {
     --content-max-width: 950px;
     --content-min-width: 660px;
     --topbar-height: 64px;
+    --page-min-width: 360px;
 }
 
 /* Custom HNN colors */
