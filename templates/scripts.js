@@ -416,8 +416,8 @@ const logoImg = document.getElementById('logo-img');
 function updateImageForTheme() {
     const isDark = document.body.classList.contains('dark-mode');
     logoImg.src = isDark
-        ? 'bridging-scales-colored-dm.png'
-        : 'bridging-scales-colored.png';
+        ? 'https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/frontpage/content-images/bridging-scales-colored-dm.png'
+        : 'https://raw.githubusercontent.com/jonescompneurolab/jones-website/refs/heads/master/images/frontpage/content-images/bridging-scales-colored.png';
 }
 
 // run function on page load
